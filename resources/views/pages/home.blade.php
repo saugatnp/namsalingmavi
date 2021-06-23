@@ -1,6 +1,8 @@
 @extends('layout.app')
 
 @section('content')
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="zk8Ucy7U"></script>
 <div id=crousel>
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -126,10 +128,23 @@
         </div>
         <div id="calendar" class="col">
              <div >
-              <iframe src="https://calendar-nepali.com/clockwidget/nepali-time-and-date.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:500px; height:520px;" allowtransparency="true"></iframe>
+              <iframe src="https://calendar-nepali.com/clockwidget/nepali-time-and-date.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:220px;" allowtransparency="true"></iframe>
                           
              </div>
+             <div class="col-md-6 col-lg-10 mb-2"><h2 class="section-heading heading-fb">Facebook</h2><iframe class="w-100" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbnksofficial%2F&amp;tabs=timeline&amp;width=350&amp;height=350&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=false&amp;appId=1288602514609223" height="350" scrolling="no" frameborder="0" allow="encrypted-media"></iframe></div>
 
         </div>
        </div>
+      <div id="events">
+        <div id="recentevents" class="col">
+          <h1>Location</h1>
+          <div class="event-div">
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d889.3321884639365!2d87.99747959785864!3d26.924790424670118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x65a7e0cb4c814866!2sNamsaling%20Academy!5e0!3m2!1sen!2snp!4v1624433481047!5m2!1sen!2snp" class="map"></iframe>
+            </div>
+          </div>
+        </div>
+        {{-- <div id="calendar" class="col">
+          
+      </div> --}}
 @endsection
