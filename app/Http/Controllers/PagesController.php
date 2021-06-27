@@ -25,4 +25,16 @@ class PagesController extends Controller
     public function aboutus(){
         return view('pages.aboutus');
     }
+    public function academicslevel(){
+        return view('pages.academics.academicslevel');
+    }
+    public function booklist(){
+        return view('pages.academics.booklist');
+    }
+    public function examresult(){
+        return view('pages.academics.examresult');
+    }
+    public function examroutine(){
+        return view('pages.academics.examroutine');
+    }
 }

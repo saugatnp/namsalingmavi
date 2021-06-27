@@ -67,17 +67,21 @@
                             <a class="nav-link active" aria-current="page" href="/home">HOME</a>
                           </li>
                       <li class="nav-item dropdown px-3">
-                        <a class="nav-link dropdown-toggle active" href="/academics" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           ACADEMICS
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="/academics/academicslevel">Academic level</a></li>
+                          <li><a class="dropdown-item" href="/academics/booklist">Book List</a></li>
+                          <li><a class="dropdown-item" href="/academics/examroutine">Exam Routine</a></li>
+                          <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
+
                         </ul>
                       </li>
                       <li class="nav-item px-3">
                         <a class="nav-link active" aria-current="page" href="/gallery">GALLERY</a>
                       </li>
+                     
                       <li class="nav-item px-3">
                         <a class="nav-link disabled" href="/library" tabindex="-1" aria-disabled="true">LIBRARY</a>
                       </li>

@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+<<<<<<< HEAD
 <div class="Contactimage" >
         <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" height=600px; width="100%" >
 
@@ -35,4 +36,15 @@
                     </div>
                   </div>
                 </div>
+=======
+        <h1>This is contact us ps
+                df
+                sdf
+                sdf
+                sd
+                fds
+                f
+                sdf
+                sdage</h1>
+>>>>>>> e883a0c74927cd28e420da08ca0827cadf1d8b24
         @endsection
