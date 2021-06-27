@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="zk8Ucy7U"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="wv0cgsb1"></script>
 <div id=crousel>
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -104,9 +104,8 @@
       
         </div>
   </div>
-
 </section>
-       <div id="events">
+      <div id="events">
         <div id="recentevents" class="col">
           <h1>Recent Events</h1>
           <div class="event-div">
@@ -122,19 +121,24 @@
                   culture, and tradition. This enables students to understand and respect other culture, develop tolerance
                   towards the differences and help them cross the cultural dogmatic boundaries.
               </p>
-          </div>
-          
             </div>
+          </div>
         </div>
-        <div id="calendar" class="col">
-             <div >
-              <iframe src="https://calendar-nepali.com/clockwidget/nepali-time-and-date.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:220px;" allowtransparency="true"></iframe>
-                          
-             </div>
-             <div class="col-md-6 col-lg-10 mb-2"><h2 class="section-heading heading-fb">Facebook</h2><iframe class="w-100" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbnksofficial%2F&amp;tabs=timeline&amp;width=350&amp;height=350&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=false&amp;appId=1288602514609223" height="350" scrolling="no" frameborder="0" allow="encrypted-media"></iframe></div>
-
+        <div id="calendar" >
+          <h1>Today's date</h1>
+            <iframe src="https://calendar-nepali.com/clockwidget/nepali-time-and-date.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:220px;" allowtransparency="true"></iframe>                      
         </div>
-       </div>
+        <div class="col facebook col-md-6 col-lg-4 mb-3">
+          <h1>Facebook</h1>
+          <div class="fb-page col" data-href="https://www.facebook.com/Namsaling-secondary-school-1039472906234748" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/Namsaling-secondary-school-1039472906234748" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/Namsaling-secondary-school-1039472906234748">
+                Namsaling secondary school
+              </a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
       <div id="events">
         <div id="recentevents" class="col">
           <h1>Location</h1>
