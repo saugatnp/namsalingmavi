@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PagesController extends Controller
 {
     public function home(){
-        return view('pages.home');
+        $principalmsgs = Post::where('key', 'pmsg')->get();
+        $sectionone = Post::where('key' , 'secone')->get();
+        $sectiontwo = Post::where('key' , 'sectwo')->get();
+        $sectionthree = Post::where('key' , 'secthree')->get();
+        $recentevent = Post::where('key' , 'recentevt')->get();
+        return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)->with('recentevent', $recentevent);
     }
     public function academics(){
         return view('pages.academics');

@@ -39,12 +39,13 @@
   <div id="welcome-msg">
     <h1>Welcome to <br/> <strong>Namsaling Higher Secondary School </strong></h1>
     <br/>
-    <h3>A message from the Principal</h3>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat iure obcaecati doloribus amet facilis officiis natus nisi, adipisci mollitia ad, assumenda ullam repudiandae consectetur exercitationem quaerat sapiente dolor eum magnam?
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio aspernatur minus accusamus amet commodi iste iusto nesciunt. Quo dolore assumenda qui quasi ab dicta cupiditate, magni odio eum cumque sit!
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab hic ex a dicta? Maiores perspiciatis nemo, accusamus amet impedit nostrum facere, inventore dolorem culpa repellendus voluptatibus quod. Quo, excepturi eos?
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores accusantium veniam possimus laudantium? Fuga debitis magnam est, veritatis consectetur inventore commodi laudantium nihil nostrum voluptatum dicta distinctio reprehenderit facilis sit!
-  </div>
+    
+      @foreach ($principalmsgs as $principalmsg)
+        <h3>{{$principalmsg->title}}</h3>
+        {{$principalmsg->value}}
+      @endforeach
+    
+    </div>
   <div style="text-align: center;">
     <div id="welcome-img">
       <img src="https://mymodernmet.com/wp/wp-content/uploads/2021/01/morphy-me-celebrity-face-mashups-15.jpg" class="principalimage">
@@ -59,14 +60,14 @@
             <div class="info-img" style=" center;">
               <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
             </div>
+            @foreach ($sectionone as $secone)
             <h2>
-                Admission
+                {{$secone->title}}
             </h2>
             <p>
-                Admission is largely based on merits, a proven academic success, the potential contributions a student can bring to the community,
-                and an enthusiasm for learning. We enroll students every year to fulfill the vacant seats available on
-                merit base. Admission shall not be denied because of nationality, ethnicity, gender, or religious beliefs.
+                {{$secone->value}}
             </p>
+            @endforeach
           </div>
          
       </div>
@@ -76,14 +77,14 @@
             <div class="info-img" style=" center;">
               <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
             </div>
+            @foreach ($sectiontwo as $sectwo)
             <h2>
-                Exam policy
+                {{$sectwo->title}}
             </h2>
             <p>
-                We integrate both the traditional formal exam system with modern thematic evaluation procedure through assessing individual
-                performances. A series of class evaluations, observation of behavioral changes, performances in thematic
-                assignments will be recorded and made available in the individual roster both manual and electronic forms.
+                {{$sectwo->value}}
             </p>
+            @endforeach
           </div>
           
       </div>
@@ -92,14 +93,14 @@
           <div class="info-img" >
             <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
           </div>
-          <h2>
-              Language class
-          </h2>
-          <p>
-              Kavya has introduced Chinese and German language classes as non credit subjects where students learn Chinese and German languages,
-              culture, and tradition. This enables students to understand and respect other culture, develop tolerance
-              towards the differences and help them cross the cultural dogmatic boundaries.
-          </p>
+          @foreach ($sectionthree as $secthree)
+            <h2>
+                {{$secthree->title}}
+            </h2>
+            <p>
+                {{$secthree->value}}
+            </p>
+            @endforeach
       </div>
       
         </div>
@@ -113,14 +114,14 @@
               <div class="info-img" >
                 <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
               </div>
-              <h2>
-                  Language class
-              </h2>
-              <p>
-                  Kavya has introduced Chinese and German language classes as non credit subjects where students learn Chinese and German languages,
-                  culture, and tradition. This enables students to understand and respect other culture, develop tolerance
-                  towards the differences and help them cross the cultural dogmatic boundaries.
-              </p>
+              @foreach ($recentevent as $recevt)
+            <h2>
+                {{$recevt->title}}
+            </h2>
+            <p>
+                {{$recevt->value}}
+            </p>
+            @endforeach
             </div>
           </div>
         </div>

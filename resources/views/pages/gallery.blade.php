@@ -1,10 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-<<<<<<< HEAD
-        <h1>This is gallery page</h1>
-        
-=======
+
         <h1 style="text-align: center; margin-top:50px;">Gallery </h1>
         <div class="gallery">
                 {{-- <a class="col-md-3 col-sm-4 col-xs-6 xz" href="gallery-open.php?album=3353">
@@ -58,5 +55,5 @@
                         </div>
                 </div>
         </div>
->>>>>>> e883a0c74927cd28e420da08ca0827cadf1d8b24
+
         @endsection

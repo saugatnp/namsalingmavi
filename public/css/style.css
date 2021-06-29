@@ -249,7 +249,7 @@ footer{
     border:groove;
     
 }
-<<<<<<< HEAD
+
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     width: 100%; /* Full width */
@@ -288,8 +288,7 @@ input[type=text], select, textarea {
 
   }
 
- 
-=======
+
 .fb-page{
     padding: 0px !important;
 }
@@ -330,4 +329,4 @@ input[type=text], select, textarea {
     width:100%;
     height:auto;
 } */
->>>>>>> e883a0c74927cd28e420da08ca0827cadf1d8b24
+
