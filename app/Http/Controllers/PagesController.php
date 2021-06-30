@@ -25,6 +25,18 @@ class PagesController extends Controller
     public function aboutus(){
         return view('pages.aboutus');
     }
+    public function schoolprofile(){
+        return view('pages.aboutus.schoolprofile');
+    }
+    public function bot(){
+            return view('pages.aboutus.bot');
+    }
+    public function smsc(){
+            return view('pages.aboutus.smsc');
+    }
+    public function cont(){
+        return view('pages.aboutus.cont');
+    } 
     public function academicslevel(){
         return view('pages.academics.academicslevel');
     }
