@@ -29,7 +29,8 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="list-inline mb-0 pt-md-2 pb-2 text-md-right">
-                            <a aria-haspopup="true" href="#" class="c0132 " aria-expanded="false">
+                      
+                            <a aria-haspopup="true" href="/login" class="c0132 " aria-expanded="false">
                                 <span aria-hidden="true" class="fa fa-lock mr-1">
                                 </span>
                                 Login
@@ -85,8 +86,17 @@
                       <li class="nav-item px-3">
                         <a class="nav-link disabled" href="/library" tabindex="-1" aria-disabled="true">LIBRARY</a>
                       </li>
-                      <li class="nav-item px-3">
-                        <a class="nav-link active" aria-current="page" href="/aboutus">ABOUT US</a>
+                      <li class="nav-item dropdown px-3">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          ABOUT US
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/aboutus/schoolprofile">School Profile & History</a></li>
+                          <li><a class="dropdown-item" href="/aboutus/bot">Teachers</a></li>
+                          <li><a class="dropdown-item" href="/aboutus/smsc">School Management Comittee</a></li>
+                          <li><a class="dropdown-item" href="/aboutus/cont">Contributors</a></li>
+
+                        </ul>
                       </li>
                       <li class="nav-item px-3">
                         <a class="nav-link active" aria-current="page" href="/contactus">CONTACT US</a>

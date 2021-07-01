@@ -239,7 +239,6 @@ footer{
 }
 .facebook{
     margin-top: 20px;
-   
     padding: 0;
     text-align: justify;
 }
@@ -288,7 +287,7 @@ input[type=text], select, textarea {
 
   }
 
- 
+
 
 .fb-page{
     padding: 0px !important;
@@ -330,7 +329,10 @@ input[type=text], select, textarea {
     width:100%;
     height:auto;
 } */
+
 .wow{
     margin-top: 100px;
     display:flex;
 }
+
+/* LOgin Page CSS*/
