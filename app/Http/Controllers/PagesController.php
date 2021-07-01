@@ -21,6 +21,9 @@ class PagesController extends Controller
     public function gallery(){
         return view('pages.gallery');
     }
+    public function notice(){
+        return view('pages.notice');
+    }
     public function library()
     {
         return view('pages.library');

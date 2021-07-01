@@ -1,6 +1,11 @@
 body{
     background-color:white; 
 }
+#backroot{
+    background-color: azure;
+    font-size: small;
+    margin:0px;
+}
 :root {
     --blue: #5da2d5;
     --white: #feffff;
@@ -325,8 +330,4 @@ input[type=text], select, textarea {
     background-color: var(--blue);
     color: var(--white);
 }
-/* .gallery-box{
-    width:100%;
-    height:auto;
-} */
-
+/*side bar css*/

@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="list-inline mb-0 pt-md-2 pb-2 text-md-right">
-                            <a aria-haspopup="true" href="#" class="c0132 " aria-expanded="false">
+                            <a aria-haspopup="true" href="/home/create" class="c0132 " aria-expanded="false">
                                 <span aria-hidden="true" class="fa fa-lock mr-1">
                                 </span>
                                 Login
@@ -51,7 +51,7 @@
     <div id="nav" class="sticky-top">
             <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
-                    <nav class="navbar sticky-top navbar-light ">
+                    <nav class="navbar sticky-top navbar-light navbar-left ">
                         <div class="container">
                           <a class="navbar-brand px-3" href="#">
                             <img src="https://www.logologo.com/logos/horse-logo2.jpg" alt="" width="50" height="40">
@@ -80,6 +80,9 @@
                       </li>
                       <li class="nav-item px-3">
                         <a class="nav-link active" aria-current="page" href="/gallery">GALLERY</a>
+                      </li>
+                      <li class="nav-item px-3">
+                        <a class="nav-link active" aria-current="page" href="/notice">NOTICE</a>
                       </li>
                      
                       <li class="nav-item px-3">

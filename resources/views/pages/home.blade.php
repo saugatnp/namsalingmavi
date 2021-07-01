@@ -7,16 +7,20 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://i.pinimg.com/564x/95/ee/86/95ee8696f8ed1abb3767928c4d0daf65.jpg" class="d-block w-100" style="opacity: 0.8;" alt="...">
-        <div class="carousel-content">
-         Namsaling High School
-        </div>
+        @foreach ($crouselone as $croone)
+          <img src="{{$croone->image}}" class="d-block w-100" style="opacity: 0.8;" alt="...">
+          <div class="carousel-content">
+            {{$croone->title}}
+          </div>
+        @endforeach
       </div>
       <div class="carousel-item">
-        <img src="https://images.firstpost.com/wp-content/uploads/2019/02/Moon.jpg" class="d-block w-100" style="opacity: 0.8;"alt="...">
+        @foreach ($crouseltwo as $crotwo)
+        <img src="{{$crotwo->image}}" class="d-block w-100" style="opacity: 0.8;"alt="...">
         <div class="carousel-content">
-          Namsaling High School
+          {{$crotwo->title}}
         </div>
+        @endforeach
       </div>
       <div class="carousel-item">
         <img src="https://andlocal.org/wp-content/uploads/2017/12/build-high-quality-backlinks.jpg" class="d-block w-100" style="opacity: 0.8;" alt="...">
@@ -119,7 +123,7 @@
                 {{$recevt->title}}
             </h2>
             <p>
-                {{$recevt->value}}
+                {!!$recevt->value!!}
             </p>
             @endforeach
             </div>

@@ -22,17 +22,18 @@ Route::get('/home', function () {
 //home page route
 // Route::get('/', 'PagesController@home');
 
-Route::get('/home', 'PagesController@home');
+// Route::get('/home', 'PagesController@home');
 
 
 Route::get('/library' , 'PagesController@library');
 Route::get('/contactus' , 'PagesController@contactus');
 Route::get('/aboutus' , 'PagesController@aboutus');
 Route::get('/gallery' , 'PagesController@gallery');
+Route::get('/notice', 'PagesController@notice');
 Route::get('/academics' , 'PagesController@academics');
 Route::get('/academics/academicslevel' , 'PagesController@academicslevel');
 Route::get('/academics/booklist' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
-// Route::resource('/home' , 'PostController');
+Route::resource('/home' , 'PostController');
 
