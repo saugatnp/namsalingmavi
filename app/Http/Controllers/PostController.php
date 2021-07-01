@@ -19,7 +19,10 @@ class PostController extends Controller
         $sectiontwo = Post::where('key' , 'sectwo')->get();
         $sectionthree = Post::where('key' , 'secthree')->get();
         $recentevent = Post::where('key' , 'recentevt')->get();
-        return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)->with('recentevent', $recentevent);
+        $crouselone = Post::where('key' , 'crouselone')->get();
+        $crouseltwo = Post::where('key' , 'crouseltwo')->get();
+        return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)
+        ->with('recentevent', $recentevent)->with('crouselone' ,$crouselone)->with('crouseltwo' , $crouseltwo);
     }
 
     /**
@@ -29,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('backends.home');
     }
 
     /**
@@ -40,7 +43,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'key' => 'required',
+            'title' => 'required',
+            'value' => 'required',
+            'image' => 'required'
+        ]);
+
+        //create post
+        $post = new Post;
+        $post->key = $request->input('key');
+        $post->title = $request->input('title');
+        $post->value = $request->input('value');
+        $post->image = $request->input('image');
+        $post->save();
+
+        return redirect('/home/create')->with('success' , 'Post added');
+
+
     }
 
     /**
