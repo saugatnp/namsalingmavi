@@ -41,6 +41,10 @@ Route::get('/academics/booklist/{id}' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
 Route::resource('/home' , 'PostController');
+
+Route::get('/sidebar' , 'PagesController@sidebar');
+
 Route::get('/login/home' , 'PagesController@loginhome');
+
 
 
