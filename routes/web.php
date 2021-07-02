@@ -20,7 +20,7 @@ Route::get('/home', function () {
 });
 */
 //home page route
-// Route::get('/', 'PagesController@home');
+Route::get('/', 'PagesController@home');
 
 // Route::get('/home', 'PagesController@home');
 
@@ -41,4 +41,6 @@ Route::get('/academics/booklist' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
 Route::resource('/home' , 'PostController');
+Route::get('/login/home' , 'PagesController@loginhome');
+
 
