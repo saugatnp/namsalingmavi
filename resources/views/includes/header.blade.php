@@ -76,7 +76,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="/academics/academicslevel">Academic level</a></li>
-                          <li><a class="dropdown-item" href="/academics/booklist">Book List</a></li>
+                          <li><a class="dropdown-item" href="/academics/booklist/14">Book List</a></li>
                           <li><a class="dropdown-item" href="/academics/examroutine">Exam Routine</a></li>
                           <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
 

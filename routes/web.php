@@ -37,7 +37,7 @@ Route::get('/aboutus/bot','PagesController@bot');
 Route::get('/aboutus/smsc','PagesController@smsc');
 Route::get('/aboutus/cont','PagesController@cont');
 Route::get('/academics/academicslevel' , 'PagesController@academicslevel');
-Route::get('/academics/booklist' , 'PagesController@booklist');
+Route::get('/academics/booklist/{id}' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
 Route::resource('/home' , 'PostController');

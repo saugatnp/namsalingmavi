@@ -52,8 +52,22 @@ class PagesController extends Controller
     public function academicslevel(){
         return view('pages.academics.academicslevel');
     }
-    public function booklist(){
-        return view('pages.academics.booklist');
+    public function booklist($id){
+        // $post = Post::find($id);
+        $post = Post::where('id' , $id)->get();
+        $bookone = Post::where('key' , 'bookone')->get();
+        $booktwo = Post::where('key' , 'booktwo')->get();
+        $bookthree = Post::where('key' , 'bookthree')->get();
+        $bookfour = Post::where('key' , 'bookfour')->get();
+        $bookfive = Post::where('key' , 'bookfive')->get();
+        $booksix = Post::where('key' , 'booksix')->get();
+        $bookseven = Post::where('key' , 'bookseven')->get();
+        $bookeight = Post::where('key' , 'bookeight')->get();
+        $booknine = Post::where('key' , 'booknine')->get();
+        $bookten = Post::where('key' , 'bookten')->get();
+        return view('pages.academics.booklist')->with('bookone', $bookone)->with('booktwo', $booktwo)->with('bookthree', $bookthree)
+        ->with('bookfour', $bookfour)->with('bookfive', $bookfive)->with('booksix', $booksix)->with('bookseven', $bookseven)
+        ->with('bookeight', $bookeight)->with('booknine', $booknine)->with('bookten', $bookten)->with('post' , $post);
     }
     public function examresult(){
         return view('pages.academics.examresult');

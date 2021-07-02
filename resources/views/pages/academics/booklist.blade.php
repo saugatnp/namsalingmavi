@@ -8,12 +8,14 @@
                                         Book List
                                 </h2>
                                 <div class="book-list-pdf">
-                                        <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://www.internetsociety.org/wp-content/uploads/2017/09/ISOC-History-of-the-Internet_1997.pdf"
+                                        @foreach ($post as $img)
+                                        <img src="{{$img->image}}"
                                                 frameBorder="0"
                                                 scrolling="auto"
                                                 height="100%"
                                                 width="100%">
                                         </iframe>
+                                        @endforeach
                                 </div>
                                 &nbsp;
                                 <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer" margin="20px">
@@ -26,35 +28,56 @@
                         <div class="col-sm-4 book0-10 ">
                                 <h5>Book List/Others</h5>
                                 <ul class="list-group">
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 1
+                                        @foreach ($bookone as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                {{-- <a href="/home/{{$secthree->id}}/edit">Edit</a> --}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 2
+                                        @foreach ($booktwo as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 3
+                                        @foreach ($bookthree as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 4
+                                        @foreach ($bookfour as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 5
+                                        @foreach ($bookfive as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 6
+                                        @foreach ($booksix as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 7
+                                        @foreach ($bookseven as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 8
+                                        @foreach ($bookeight as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 9
+                                        @foreach ($booknine as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
-                                        <a class="active list-group-item-action list-group-item" href="#">
-                                                Book list class 10
+                                        @foreach ($bookten as $book)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
+                                                {{$book->title}}
+                                                @endforeach
                                         </a>
                                 </ul>
                         </div>
