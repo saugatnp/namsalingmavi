@@ -61,4 +61,7 @@ class PagesController extends Controller
     public function examroutine(){
         return view('pages.academics.examroutine');
     }
+    public function sidebar(){
+        return view('includes.sidebar');
+    }
 }
