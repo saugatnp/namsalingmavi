@@ -3,36 +3,43 @@
 @section('content')
 
 <h1>backend home</h1>
-<div id="welcome">
-    {!! Form::open(['action'=> 'PostController@store' , 'method' => 'POST']) !!}
-    <div class="form-group">
-        {{Form::label('key' , 'Key')}}
-        {{Form::text('key' , '' , ['class' => 'form-control' , 'placeholder' => 'Key' ,'required'=>'true'])}}
-    </div>
-    <div class="form-group">
-        {{Form::label('title' , 'Titasale')}}
-        {{Form::text('title' , '' , ['class' => 'form-control' , 'placeholder' => 'Tiaaatle'])}}
-    </div>
-    <div class="form-group">
-        {{Form::label('value' , 'Value')}}
-        {{Form::textarea('value' , '' , ['id'=>'editor','class' => 'form-control' , 'placeholder' => 'Value'])}}
-    </div>
-    <div class="form-group">
-        {{Form::label('image' , 'Image')}}
-        {{Form::text('image' , '' , ['class' => 'form-control' , 'placeholder' => 'Image'])}}
-    </div>
-    {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
-{!! Form::close() !!}
-</div>
-<div id="editor">
-</div>
-<script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
-
+        @foreach ($crouselone as $croone)
+            {{$croone->title}}
+            <a href="/home/{{$croone->id}}/edit" >Edit</a>
+        @endforeach
+<br/>
+        @foreach ($crouseltwo as $crotwo)
+            {{$crotwo->title}}
+            <a href="/home/{{$crotwo->id}}/edit" >Edit</a>
+        @endforeach
+        <br/>
+        @foreach ($crouselthree as $crothree)
+            {{$crothree->title}}
+            <a href="/home/{{$crothree->id}}/edit" >Edit</a>
+        @endforeach
+        <br/>
+        @foreach ($principalmsgs as $pmsg)
+            {{$pmsg->title}}
+            <a href="/home/{{$pmsg->id}}/edit">Edit</a>
+        @endforeach
+        <br/>
+        @foreach ($sectionone as $secone)
+            {{$secone->title}}
+            <a href="/home/{{$secone->id}}/edit">Edit</a>
+        @endforeach
+        <br/>
+        @foreach ($sectiontwo as $sectwo)
+            {{$sectwo->title}}
+            <a href="/home/{{$sectwo->id}}/edit">Edit</a>
+        @endforeach     
+        <br/>
+        @foreach ($sectionthree as $secthree)
+            {{$secthree->title}}
+            <a href="/home/{{$secthree->id}}/edit">Edit</a>
+        @endforeach
+<br/>
+        @foreach ($recentevent as $rctevt)
+            {{$rctevt->title}}
+            <a href="/home/{{$rctevt->id}}/edit">Edit</a>
+        @endforeach
 @endsection

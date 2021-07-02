@@ -38,13 +38,13 @@ class PagesController extends Controller
         return view('pages.aboutus.schoolprofile');
     }
     public function bot(){
-            return view('pages.aboutus.bot');
+        return view('pages.aboutus.bot');
     }
     public function login(){
         return view('pages.login');
     }
     public function smsc(){
-            return view('pages.aboutus.smsc');
+        return view('pages.aboutus.smsc');
     }
     public function cont(){
         return view('pages.aboutus.cont');
@@ -61,7 +61,23 @@ class PagesController extends Controller
     public function examroutine(){
         return view('pages.academics.examroutine');
     }
+
     public function sidebar(){
         return view('includes.sidebar');
     }
+
+    public function loginhome(){
+        $principalmsgs = Post::where('key', 'pmsg')->get();
+        $sectionone = Post::where('key' , 'secone')->get();
+        $sectiontwo = Post::where('key' , 'sectwo')->get();
+        $sectionthree = Post::where('key' , 'secthree')->get();
+        $recentevent = Post::where('key' , 'recentevt')->get();
+        $crouselone = Post::where('key' , 'crouselone')->get();
+        $crouseltwo = Post::where('key' , 'crouseltwo')->get();
+        $crouselthree = Post::where('key' , 'crouselthree')->get();
+        return view('backends.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)
+        ->with('recentevent', $recentevent)->with('crouselone' ,$crouselone)->with('crouseltwo' , $crouseltwo)->with('crouselthree' , $crouselthree);
+        
+    }
+
 }

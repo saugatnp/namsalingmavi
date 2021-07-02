@@ -23,10 +23,12 @@
         @endforeach
       </div>
       <div class="carousel-item">
-        <img src="https://andlocal.org/wp-content/uploads/2017/12/build-high-quality-backlinks.jpg" class="d-block w-100" style="opacity: 0.8;" alt="...">
+        @foreach($crouselthree as $crothree)
+        <img src="{{$crothree->image}}" class="d-block w-100" style="opacity: 0.8;" alt="...">
         <div class="carousel-content">
-          Namsaling High School
+          {{$crothree->title}}
         </div>
+        @endforeach
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

@@ -14,15 +14,16 @@ class PostController extends Controller
      */
     public function index()
     {
+        $crouselone = Post::where('key' , 'crouselone')->get();
+        $crouseltwo = Post::where('key' , 'crouseltwo')->get();
+        $crouselthree = Post::where('key' , 'crouselthree')->get();
         $principalmsgs = Post::where('key', 'pmsg')->get();
         $sectionone = Post::where('key' , 'secone')->get();
         $sectiontwo = Post::where('key' , 'sectwo')->get();
         $sectionthree = Post::where('key' , 'secthree')->get();
         $recentevent = Post::where('key' , 'recentevt')->get();
-        $crouselone = Post::where('key' , 'crouselone')->get();
-        $crouseltwo = Post::where('key' , 'crouseltwo')->get();
         return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)
-        ->with('recentevent', $recentevent)->with('crouselone' ,$crouselone)->with('crouseltwo' , $crouseltwo);
+        ->with('recentevent', $recentevent)->with('crouselone' ,$crouselone)->with('crouseltwo' , $crouseltwo)->with('crouselthree' , $crouselthree);
     }
 
     /**
@@ -32,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backends.home');
+        // return view('backends.home');
     }
 
     /**
@@ -82,7 +83,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo"ababab";
+        $post = Post::find($id);
+        return view('backends.update.edit')->with('post',$post);
     }
 
     /**
@@ -94,7 +97,22 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            // 'key' => 'required',
+            'title' => 'required',
+            'value' => 'required',
+            'image' => 'required'
+        ]);
+
+        //create post
+        $post = Post::Find($id);
+        // $post->key = $request->input('key');
+        $post->title = $request->input('title');
+        $post->value = $request->input('value');
+        $post->image = $request->input('image');
+        $post->save();
+
+        return redirect('/home/create')->with('success' , 'Post updated');
     }
 
     /**

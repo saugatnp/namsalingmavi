@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,50 +15,42 @@
       <input type="checkbox" id="show-menu">
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
-      <div class="logo"><a href="#">Namsaling Mavi</a></div>
+      <div class="logo"><a href="#" class="sidelink">Namsaling Mavi</a></div>
         <ul class="links">
-          <li><a href="#">Home</a></li>
+          <li><a href="/home/edit" class="sidelink">Home</a></li>
           
           <li>
-            <a href="#" class="desktop-link">Academics</a>
+            <a href="#" class="desktop-link sidelink">Academics</a>
             <input type="checkbox" id="show-features">
-            <label for="show-features">Academics</label>
+            <label for="show-features" class="sidelink">Academics</label>
             <ul>
-              <li><a href="#">Academic Level</a></li>
-              <li><a href="#">Book List</a></li>
-              <li><a href="#">Exam Routine</a></li>
-              <li><a href="#">Exam Result</a></li>
+              <li><a href="#" class="sidelink">Academic Level</a></li>
+              <li><a href="#" class="sidelink">Book List</a></li>
+              <li><a href="#" class="sidelink">Exam Routine</a></li>
+              <li><a href="#" class="sidelink">Exam Result</a></li>
             </ul>
           </li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Notice</a></li>
-          <li><a href="#">Library</a></li>
+          <li><a href="#" class="sidelink">Gallery</a></li>
+          <li><a href="#" class="sidelink">Notice</a></li>
+          <li><a href="#" class="sidelink">Library</a></li>
           <li>
-            <a href="#" class="desktop-link">About us </a>
+            <a href="#" class="desktop-link sidelink">About us </a>
             <input type="checkbox" id="show-services">
-            <label for="show-services">About us </label>
+            <label for="show-services" class="sidelink">About us </label>
             <ul>
-              <li><a href="#">School Profile and History</a></li>
-              <li><a href="#">Teachers</a></li>
-              <li><a href="#">School Mangement Comittee</a></li>
-              <li><a href="#">Contributors</a></li>
+              <li><a href="#" class="sidelink">School Profile and History</a></li>
+              <li><a href="#" class="sidelink">Teachers</a></li>
+              <li><a href="#" class="sidelink">School Mangement Comittee</a></li>
+              <li><a href="#" class="sidelink">Contributors</a></li>
               
             </ul>
           </li>
-          <li><a href="#">Contact US</a></li>
+          <li><a href="#" class="sidelink">Contact US</a></li>
         </ul>
       </div>
-      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
-      <form action="#" class="search-box">
-        <input type="text" placeholder="Type Something to Search..." required>
-        <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+      
       </form>
     </nav>
-  </div>
-
-  <div class="dummy-text">
-    <h2>Responsive Dropdown Menu Bar with Searchbox</h2>
-    <h2>using only HTML & CSS - Flexbox</h2>
   </div>
 
 </body>

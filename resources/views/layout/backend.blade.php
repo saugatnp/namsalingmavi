@@ -20,7 +20,7 @@
     <body >
       
         <div id="root">
-          {{-- @include('includes.sidebar') --}}
+          @include('includes.sidebar')
           @include('includes.messages')
           @yield('content')
           {{-- @yield('ckeditor') --}}
