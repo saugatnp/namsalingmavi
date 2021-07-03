@@ -2,7 +2,8 @@
 
 @section('content')
 
-<h1>backend home</h1>
+<div>
+    <h1>backend home</h1>
         @foreach ($crouselone as $croone)
             {{$croone->title}}
             <a href="/home/{{$croone->id}}/edit" >Edit</a>
@@ -42,4 +43,5 @@
             {{$rctevt->title}}
             <a href="/home/{{$rctevt->id}}/edit">Edit</a>
         @endforeach
+</div>
 @endsection

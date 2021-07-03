@@ -21,8 +21,9 @@
       
         <div id="root">
           @include('includes.sidebar')
-          @include('includes.messages')
           @yield('content')
+          @include('includes.messages')
+          
           {{-- @yield('ckeditor') --}}
         </div>
         
