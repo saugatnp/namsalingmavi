@@ -42,10 +42,11 @@ Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
 Route::resource('/home' , 'PostController');
 
+///back end routes
 Route::get('/sidebar' , 'PagesController@sidebar');
-
 Route::get('/login/home' , 'PagesController@loginhome');
 Route::get('/login/booklist' , 'PagesController@loginbooklist');
+Route::get('/login/examroutine' , 'PagesController@loginroutine');
 
 
 

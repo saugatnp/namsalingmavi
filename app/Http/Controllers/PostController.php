@@ -83,7 +83,6 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        echo"ababab";
         $post = Post::find($id);
         return view('backends.update.edit')->with('post',$post);
     }

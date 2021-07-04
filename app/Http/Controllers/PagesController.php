@@ -73,7 +73,8 @@ class PagesController extends Controller
         return view('pages.academics.examresult');
     }
     public function examroutine(){
-        return view('pages.academics.examroutine');
+        $routine = Post::where('key' , 'routine')->get();
+        return view('pages.academics.examroutine')->with('routine' , $routine);
     }
 
     public function sidebar(){
@@ -107,6 +108,10 @@ class PagesController extends Controller
         ->with('bookfour', $bookfour)->with('bookfive', $bookfive)->with('booksix', $booksix)->with('bookseven', $bookseven)
         ->with('bookeight', $bookeight)->with('booknine', $booknine)->with('bookten', $bookten);
 
+    }
+    public function loginroutine(){
+        $routine = Post::where('key' , 'routine')->get(); 
+        return view('backends.examroutine')->with('routine' , $routine);
     }
 
 }
