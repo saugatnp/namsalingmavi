@@ -66,22 +66,23 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item px-3">
                             <a class="nav-link active" aria-current="page" href="/home">HOME</a>
                           </li>
                       <li class="nav-item dropdown px-3">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           ACADEMICS
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="/academics/academicslevel">Academic level</a></li>
-                          <li><a class="dropdown-item" href="/academics/booklist/14">Book List</a></li>
+                          <li><a class="dropdown-item" href="/academics/booklist">Book List</a></li>
                           <li><a class="dropdown-item" href="/academics/examroutine">Exam Routine</a></li>
                           <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
 
                         </ul>
                       </li>
+                      
                       <li class="nav-item px-3">
                         <a class="nav-link active" aria-current="page" href="/gallery">GALLERY</a>
                       </li>

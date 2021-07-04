@@ -10,9 +10,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('js/bootstrap.js') }}">
 
@@ -20,9 +21,18 @@
     <body >
       
         <div id="root">
-          @include('includes.sidebar')
-          @yield('content')
-          @include('includes.messages')
+            <div class="topbar">
+                @include('includes.sidebar')
+            </div>
+            <div class="main-bar">
+               <div class="sidebar">
+                    @include('includes.sidebar')
+                </div>
+                <div class="content">
+                    @yield('content')
+                </div>
+            </div>
+            @include('includes.messages')
           
           {{-- @yield('ckeditor') --}}
         </div>
