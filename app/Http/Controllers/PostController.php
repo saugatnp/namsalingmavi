@@ -59,7 +59,7 @@ class PostController extends Controller
         $post->image = $request->input('image');
         $post->save();
 
-        return redirect('/home/create')->with('success' , 'Post added');
+        return redirect('/index/create')->with('success' , 'Post added');
 
 
     }
@@ -111,7 +111,7 @@ class PostController extends Controller
         $post->image = $request->input('image');
         $post->save();
 
-        return redirect('/home/create')->with('success' , 'Post updated');
+        return redirect('/home')->with('success' , 'Post updated');
     }
 
     /**

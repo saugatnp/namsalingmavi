@@ -48,7 +48,7 @@
     
       @foreach ($principalmsgs as $principalmsg)
         <h3>{{$principalmsg->title}}</h3>
-        {{$principalmsg->value}}
+        {!!$principalmsg->value!!}
       @endforeach
     
     </div>
