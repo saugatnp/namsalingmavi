@@ -22,7 +22,7 @@
 
 <body>
     @include('includes.messages')
-    <a href="{{ url()->previous() }}" class="btn btn-success">Go Back</a>
+    <a href="{{ url()->previous() }}" class="btn btn-success button4">Go Back</a>
     <div id="editpage">
 
         {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST']) !!}
@@ -31,11 +31,11 @@
         {{Form::text('key' , $post->key , ['class' => 'form-control' , 'placeholder' => 'Key' ,'required'=>'true'])}}
     </div> --}}
         <div class="form-group">
-            {{ Form::label('title', 'Titasale') }}
+            {{ Form::label('title', 'Title') }}
             {{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Tiaaatle']) }}
         </div>
         <div class="form-group">
-            {{ Form::label('value', 'Value') }}
+            {{ Form::label('value', 'Enter Text Here') }}
             {{ Form::textarea('value', $post->value, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Value']) }}
         </div>
         <div class="form-group">

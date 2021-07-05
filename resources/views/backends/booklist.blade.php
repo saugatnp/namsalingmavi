@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class=".col-12 .col-md-8">
+    <div class=".col-12 .col-md-8 back">
         @foreach ($bookone as $book)
             <div class="active list-group-item-action list-group-item">
                 {{ $book->title }}&nbsp;&nbsp;&nbsp;&nbsp;

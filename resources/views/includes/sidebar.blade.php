@@ -63,7 +63,7 @@
 <div class="main-bar">
 
   <div class="sidebar">
-    SIDEBAR LIES HERE
+
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item px-3">
           <a class="nav-link active" aria-current="page" href="/login/home">HOME</a>
