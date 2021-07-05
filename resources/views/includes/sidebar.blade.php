@@ -71,7 +71,7 @@
         SIDEBAR LIES HERE
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item px-3">
-                <a class="nav-link active" aria-current="page" href="/login/home">HOME</a>
+                <a class="nav-link active" aria-current="page" href="/home">HOME</a>
             </li>
             <li class="nav-item dropdown px-3">
                 <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" id="dropdownMenuLink" role="button"
@@ -121,6 +121,7 @@
                 </li>
                 @endif
 
+
                 @if (Route::has('register'))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -132,6 +133,7 @@
                         aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
+
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('login') }}" onclick="event.preventDefault();
