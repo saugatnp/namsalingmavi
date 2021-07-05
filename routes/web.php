@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 ;
 
 /*
@@ -40,13 +41,12 @@ Route::get('/academics/academicslevel' , 'PagesController@academicslevel');
 Route::get('/academics/booklist/{id?}' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
-Route::resource('/home' , 'PostController');
+Route::resource('/index' , 'PostController');
 
 ///back end routes
-Route::get('/sidebar' , 'PagesController@sidebar');
-Route::get('/login/home' , 'PagesController@loginhome');
-Route::get('/login/booklist' , 'PagesController@loginbooklist');
-Route::get('/login/examroutine' , 'PagesController@loginroutine');
 
 
-
+Auth::routes();
+Route::get('/login/booklist', [App\Http\Controllers\HomeController::class, 'booklist'])->middleware('auth');
+Route::get('/login/examroutine', [App\Http\Controllers\HomeController::class, 'examroutine'])->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');
