@@ -38,7 +38,8 @@ class PagesController extends Controller
         return view('pages.aboutus.schoolprofile');
     }
     public function bot(){
-        return view('pages.aboutus.bot');
+        $teach = Post::where('key' ,'timage')->get();
+        return view('pages.aboutus.bot')->with('teach' ,$teach);
     }
     public function login(){
         return view('pages.login');
