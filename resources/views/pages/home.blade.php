@@ -71,7 +71,7 @@
                 {{$secone->title}}
             </h2>
             <p>
-                {{$secone->value}}
+                {!!$secone->value!!}
             </p>
             @endforeach
           </div>
@@ -88,7 +88,7 @@
                 {{$sectwo->title}}
             </h2>
             <p>
-                {{$sectwo->value}}
+                {!!$sectwo->value!!}
             </p>
             @endforeach
           </div>
@@ -104,7 +104,7 @@
                 {{$secthree->title}}
             </h2>
             <p>
-                {{$secthree->value}}
+                {!!$secthree->value!!}
             </p>
             @endforeach
       </div>
