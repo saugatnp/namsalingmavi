@@ -2,48 +2,74 @@
 
 @section('content')
 
-<div class="back">
+<div class="mainback">
     <h1>Backend Home</h1>
-
-        @foreach ($crouselone as $croone)
-            {{$croone->title}}
-            <a class="btn btn-success button5"  href="/index/{{$croone->id}}/edit" >Edit</a>
-        @endforeach
-        <br/><br/>
-        @foreach ($crouseltwo as $crotwo) 
-            {{$crotwo->title}}
-            <a class="btn btn-success button5"  href="/index/{{$crotwo->id}}/edit" >Edit</a>
-        @endforeach
-        <br/><br/>
-        @foreach ($crouselthree as $crothree)
-            {{$crothree->title}}
-            <a class="btn btn-success button5"  href="/index/{{$crothree->id}}/edit" >Edit</a>
-        @endforeach
-        <br/><br/>
-        @foreach ($principalmsgs as $pmsg)
-            {{$pmsg->title}}&nbsp;
-            <a class="btn btn-success button5"  href="/index/{{$pmsg->id}}/edit" >Edit</a>
-        @endforeach
-        <br/><br/>
-        @foreach ($sectionone as $secone)
-            {{$secone->title}}
-            <a class="btn btn-success button5"  href="/index/{{$secone->id}}/edit" >Edit</a>
-        @endforeach
-        <br/><br/>
-        @foreach ($sectiontwo as $sectwo)
-            {{$sectwo->title}}
-            <a class="btn btn-success button5"  href="/index/{{$sectwo->id}}/edit" >Edit</a>
-        @endforeach     
-        <br/><br/>
-
-        @foreach ($sectionthree as $secthree)
-            {{$secthree->title}}
-            <a class="btn btn-success button5"  href="/index/{{$secthree->id}}/edit" >Edit</a>
-        @endforeach
-<br/><br/>
-        @foreach ($recentevent as $rctevt)
-            {{$rctevt->title}}
-            <a class="btn btn-success button5"  href="/index/{{$rctevt->id}}/edit" >Edit</a>
-        @endforeach
+    <div class="back">
+        <table cellpadding="0" style="width:100%;border: 1px solid black;">
+            <tr>
+                <th>S.N.</th>
+                <th>Title</th> 
+                <th>Action</th>
+              </tr>
+              <tr>
+            @foreach ($crouselone as $croone)
+            <td></td>
+                <td>{{$croone->title}}</td>
+                <td><a class="btn btn-success button5"  href="/index/{{$croone->id}}/edit" >Edit</a></td>
+            @endforeach
+              </tr>
+            <tr>
+            @foreach ($crouseltwo as $crotwo) 
+            <td></td>
+                <td>{{$crotwo->title}}</td>
+                <td><a class="btn btn-success button5"  href="/index/{{$crotwo->id}}/edit" >Edit</a></td>
+            @endforeach
+                </tr>
+            <tr>
+            @foreach ($crouselthree as $crothree)
+            <td></td>
+                <td>{{$crothree->title}}</td>
+               <td> <a class="btn btn-success button5"  href="/index/{{$crothree->id}}/edit" >Edit</a></td>
+            @endforeach
+            </tr>
+            <tr>
+            @foreach ($principalmsgs as $pmsg)
+            <td></td>
+                <td>{{$pmsg->title}}</td>
+               <td> <a class="btn btn-success button5"  href="/index/{{$pmsg->id}}/edit" >Edit</a></td>
+            @endforeach
+            </tr>
+            <tr>
+            @foreach ($sectionone as $secone)
+            <td></td>
+                <td>{{$secone->title}}</td>
+               <td> <a class="btn btn-success button5"  href="/index/{{$secone->id}}/edit" >Edit</a></td>
+            @endforeach
+            </tr>
+           <tr>
+            @foreach ($sectiontwo as $sectwo)
+            <td></td>
+                <td>{{$sectwo->title}}</td>
+                <td><a class="btn btn-success button5"  href="/index/{{$sectwo->id}}/edit" >Edit</a></td>
+            @endforeach 
+           </tr>    
+            <tr>
+    
+            @foreach ($sectionthree as $secthree)
+            <td></td>
+                <td>{{$secthree->title}}</td>
+                <td><a class="btn btn-success button5"  href="/index/{{$secthree->id}}/edit" >Edit</a></td>
+            @endforeach
+            </tr>
+    <tr>
+            @foreach ($recentevent as $rctevt)
+            <td></td>
+               <td> {{$rctevt->title}}</td>
+                <td><a class="btn btn-success button5"  href="/index/{{$rctevt->id}}/edit" >Edit</a></td>
+            @endforeach
+    </tr>
+    
+        </table>
+    </div>
 </div>
 @endsection

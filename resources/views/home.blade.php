@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-fsadsg
+                    naya home hai 
                     {{ __('You are logged in!') }}
                 </div>
             </div>
