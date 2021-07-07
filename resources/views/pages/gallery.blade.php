@@ -14,46 +14,23 @@
                             </div>
                         </div>
                 </a> --}}
+                @foreach($images->unique('album_id') as  $img)
+                @foreach($album as $key => $data)
+                @if($data->id == $img->album_id) 
+                <tr>
                 <div class="col-md-4 mb-4">
-                        <div class="card">     
-                                <img src="https://bnks.edu.np/uploads/gallery/gallery-20200317041239-397.JPG" alt="School Day 2020" class="c0139 c0145 card-img">
+                        <div class="card"> 
+                                <a href="/gallery/images/{{$data->id}}"><img src="{{$img->photo}}" alt="School Day 2020" class="card-img"></a>
                                 <div class="card-body">
-                                        <div class="c0140 c0146 card-title">
-                                                School Day 2020
+                                        <div class="card-title">
+                                                <th>{{$data->title}}</th>
                                         </div>
-                                </div>
+                                </div> 
                         </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                        <div class="card">     
-                                <img src="https://bnks.edu.np/uploads/gallery/gallery-20200317041239-397.JPG" alt="School Day 2020" class="c0139 c0145 card-img">
-                                <div class="card-body">
-                                        <div class="c0140 c0146 card-title">
-                                                School Day 2020
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                        <div class="card">     
-                                <img src="https://bnks.edu.np/uploads/gallery/gallery-20200317041239-397.JPG" alt="School Day 2020" class="c0139 c0145 card-img">
-                                <div class="card-body">
-                                        <div class="c0140 c0146 card-title">
-                                                School Day 2020
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                        <div class="card">     
-                                <img src="https://bnks.edu.np/uploads/gallery/gallery-20200317041239-397.JPG" alt="School Day 2020" class="c0139 c0145 card-img">
-                                <div class="card-body">
-                                        <div class="c0140 c0146 card-title">
-                                                School Day 2020
-                                        </div>
-                                </div>
-                        </div>
-                </div>
+                @endif
+                @endforeach
+                @endforeach
         </div>
 
         @endsection
