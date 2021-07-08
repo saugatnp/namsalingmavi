@@ -21,7 +21,7 @@ Route::get('/home', function () {
 });
 */
 //home page route
-Route::get('/', 'PagesController@home');
+Route::get('/', 'PostController@index');
 
 // Route::get('/home', 'PagesController@home');
 
