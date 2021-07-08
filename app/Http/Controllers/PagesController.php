@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Album;
+use App\Models\Image;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -19,7 +22,16 @@ class PagesController extends Controller
         return view('pages.academics');
     }
     public function gallery(){
-        return view('pages.gallery');
+        // $user = DB::table('users_tb')->paginate(1);
+        // $img = DB::table('images')->get();
+        $img = Image::select('album_id' ,'photo')->get();
+        $album = DB::table('albums')->get();
+        return view('pages.gallery')->with('album' , $album)->with('images' , $img);
+    }
+    public function images($id){
+        $title = Album::where('id' , $id)->get();
+        $images = Image::where('album_id' , $id)->get();
+        return view('pages.images')->with('image' , $images)->with('title' , $title);
     }
     public function notice(){
         return view('pages.notice');

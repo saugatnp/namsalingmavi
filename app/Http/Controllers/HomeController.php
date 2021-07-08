@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     /**
@@ -55,5 +56,9 @@ class HomeController extends Controller
     public function examroutine(){
         $routine = Post::where('key' , 'routine')->get(); 
         return view('backends.examroutine')->with('routine' , $routine);
+    }
+    public function gallery(){
+        $album = DB::table('albums')->get();
+        return view('backends.gallery')->with('album' , $album);
     }
 }
