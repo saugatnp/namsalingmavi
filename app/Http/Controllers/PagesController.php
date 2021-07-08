@@ -62,9 +62,7 @@ class PagesController extends Controller
     public function cont(){
         return view('pages.aboutus.cont');
     } 
-    public function academicslevel(){
-        return view('pages.academics.academicslevel');
-    }
+    
     public function booklist($id = '14'){
         // $post = Post::find($id);
         $post = Post::where('id' , $id)->get();

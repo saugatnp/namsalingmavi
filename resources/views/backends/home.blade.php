@@ -50,7 +50,7 @@
             @foreach ($sectiontwo as $sectwo)
             <td></td>
                 <td>{{$sectwo->title}}</td>
-                <td><a class="btn btn-success button5"  href="/index/{{$sectwo->id}}/edit" >Edit</a></td>
+                <td><a class="btn btn-success button5"  href="/index/{{$sectwo->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach 
            </tr>    
             <tr>
@@ -58,14 +58,14 @@
             @foreach ($sectionthree as $secthree)
             <td></td>
                 <td>{{$secthree->title}}</td>
-                <td><a class="btn btn-success button5"  href="/index/{{$secthree->id}}/edit" >Edit</a></td>
+                <td><a class="btn btn-success button5"  href="/index/{{$secthree->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
             </tr>
     <tr>
             @foreach ($recentevent as $rctevt)
             <td></td>
                <td> {{$rctevt->title}}</td>
-                <td><a class="btn btn-success button5"  href="/index/{{$rctevt->id}}/edit" >Edit</a></td>
+                <td><a class="btn btn-success button5"  href="/index/{{$rctevt->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
     </tr>
     
