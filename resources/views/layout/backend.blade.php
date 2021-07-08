@@ -25,11 +25,11 @@
             <div class="topbar">
                 @include('includes.sidebar')
             </div>
-            <div class="main-bar">
-               <div class="sidebar">
+            <div class="main-bar ">
+               <div class="sidebar col-sm-3">
                     @include('includes.sidebar')
                 </div>
-                <div class="content">
+                <div class="content col-sm-9">
                     @yield('content')
                 </div>
             </div>

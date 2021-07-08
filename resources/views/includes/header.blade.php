@@ -75,7 +75,7 @@
                           ACADEMICS
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="/academics/academicslevel">Academic level</a></li>
+                          
                           <li><a class="dropdown-item" href="/academics/booklist">Book List</a></li>
                           <li><a class="dropdown-item" href="/academics/examroutine">Exam Routine</a></li>
                           <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
@@ -101,7 +101,7 @@
                           <li><a class="dropdown-item" href="/aboutus/schoolprofile">School Profile & History</a></li>
                           <li><a class="dropdown-item" href="/aboutus/bot">Teachers</a></li>
                           <li><a class="dropdown-item" href="/aboutus/smsc">School Management Comittee</a></li>
-                          <li><a class="dropdown-item" href="/aboutus/cont">Contributors</a></li>
+                          
 
                         </ul>
                       </li>

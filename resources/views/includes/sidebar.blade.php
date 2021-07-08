@@ -65,10 +65,10 @@
         </nav>
     </div>
 </div>
-<div class="main-bar">
+
 
     <div class="sidebar">
-        SIDEBAR LIES HERE
+        <h1 style="color: bisque">&nbsp;Dashboard</h1>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item px-3">
                 <a class="nav-link active" aria-current="page" href="/home">HOME</a>
@@ -122,11 +122,11 @@
                 @endif
 
 
-                @if (Route::has('register'))
+                {{-- @if (Route::has('register'))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
-                @endif
+                @endif --}}
             @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -137,7 +137,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('login') }}" onclick="event.preventDefault();
-                                                       document.getElementById('logout-form').submit();">
+                                                           document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
 
@@ -148,10 +148,9 @@
                 </li>
             @endguest
             </li>
+            
         </ul>
     </div>
 
-    <div class="content">
-        CONTENT LIES HERE
-    </div>
-</div>
+    
+

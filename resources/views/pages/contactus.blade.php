@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="Contactimage" >
-        <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" height=600px; width="100%" >
+        <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg"  width="100%" >
 
       </div>
       <h1><center>Contact US</center></h1>
@@ -22,7 +22,7 @@
                   <label for="subject">Message</label>
                   <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
               
-                  <input type="submit" value="Submit">
+                  <input type="submit" value="Submit" class="btn btn-success">
               
                 </form>
               </div>
