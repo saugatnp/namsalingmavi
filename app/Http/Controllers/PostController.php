@@ -114,33 +114,45 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // check to see if the update request is initially from gallery by passing the previous url from the editalbum page
-        if ($request->input('url') == "/dash-board/gallery") {
-            $this->validate($request, [
-                'title' => 'required'
-            ]);
-            $album = Album::Find($id);
-            $album->title = $request->input('title');
-            $album->save();
-            return redirect('/dash-board/gallery')->with('success', 'Gallery page updated');
-        }
-        // if the initial update request is not from any of above execute the following
+        // check if the user is logged in or not
+        if (Auth::check()) {
+            // check to see if the update request is initially from gallery by passing the previous url from the editalbum page
+            if ($request->input('url') == "/dash-board/gallery") {
+                $this->validate($request, [
+                    'title' => 'required'
+                ]);
+                $album = Album::Find($id);
+                $album->title = $request->input('title');
+                $album->save();
+                return redirect('/dash-board/gallery')->with('success', 'Gallery page updated');
+            }
+            // if the initial update request is not from any of above execute the following
+            else {
+                $this->validate($request, [
+                    'title' => 'required',
+                    'value' => 'required',
+                    'image' => 'required'
+                ]);
+
+                //create post
+                $post = Post::Find($id);
+                // $post->key = $request->input('key');
+                $post->title = $request->input('title');
+                $post->value = $request->input('value');
+                $post->image = $request->input('image');
+                $post->save();
+                if($request->input('url') == "/dash-board/examroutine"){
+                    return redirect('dash-board/examroutine')->with('success' , "Exam routine updated");
+                }
+                elseif($request->input('url') == "/dash-board/booklist"){
+                    return redirect('dash-board/booklist')->with('success' , "Book list updated");
+                }
+                return redirect('/home')->with('success', 'Home page updated');
+            }
+        } 
+        // if the user is not logged in redirect to login page
         else {
-            $this->validate($request, [
-                'title' => 'required',
-                'value' => 'required',
-                'image' => 'required'
-            ]);
-
-            //create post
-            $post = Post::Find($id);
-            // $post->key = $request->input('key');
-            $post->title = $request->input('title');
-            $post->value = $request->input('value');
-            $post->image = $request->input('image');
-            $post->save();
-
-            return redirect('/home')->with('success', 'Home page updated');
+            return redirect('/login');
         }
     }
 

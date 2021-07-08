@@ -38,19 +38,21 @@ class HomeController extends Controller
         
     }
     public function booklist(){
-        $bookone = Post::where('key' , 'bookone')->get();
-        $booktwo = Post::where('key' , 'booktwo')->get();
-        $bookthree = Post::where('key' , 'bookthree')->get();
-        $bookfour = Post::where('key' , 'bookfour')->get();
-        $bookfive = Post::where('key' , 'bookfive')->get();
-        $booksix = Post::where('key' , 'booksix')->get();
-        $bookseven = Post::where('key' , 'bookseven')->get();
-        $bookeight = Post::where('key' , 'bookeight')->get();
-        $booknine = Post::where('key' , 'booknine')->get();
-        $bookten = Post::where('key' , 'bookten')->get();
-        return view('backends.booklist')->with('bookone', $bookone)->with('booktwo', $booktwo)->with('bookthree', $bookthree)
-        ->with('bookfour', $bookfour)->with('bookfive', $bookfive)->with('booksix', $booksix)->with('bookseven', $bookseven)
-        ->with('bookeight', $bookeight)->with('booknine', $booknine)->with('bookten', $bookten);
+        // $bookone = Post::where('key' , 'bookone')->get();
+        // $booktwo = Post::where('key' , 'booktwo')->get();
+        // $bookthree = Post::where('key' , 'bookthree')->get();
+        // $bookfour = Post::where('key' , 'bookfour')->get();
+        // $bookfive = Post::where('key' , 'bookfive')->get();
+        // $booksix = Post::where('key' , 'booksix')->get();
+        // $bookseven = Post::where('key' , 'bookseven')->get();
+        // $bookeight = Post::where('key' , 'bookeight')->get();
+        // $booknine = Post::where('key' , 'booknine')->get();
+        // $bookten = Post::where('key' , 'bookten')->get();
+        // return view('backends.booklist')->with('bookone', $bookone)->with('booktwo', $booktwo)->with('bookthree', $bookthree)
+        // ->with('bookfour', $bookfour)->with('bookfive', $bookfive)->with('booksix', $booksix)->with('bookseven', $bookseven)
+        // ->with('bookeight', $bookeight)->with('booknine', $booknine)->with('bookten', $bookten);
+        $book = Post::where('key' ,'book')->get();
+        return view('backends.booklist')->with('book' , $book);
 
     }
     public function examroutine(){

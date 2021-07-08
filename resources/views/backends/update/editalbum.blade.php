@@ -88,24 +88,7 @@
             </div>
         </div>
     </center>
-    {{-- <table cellpadding="0" style="width:100%;border: 1px solid black;">
-        <tr>
-            <th>S.N.</th>
-            <th>Album Name</th>
-            <th>Action</th>
-        </tr>
-        @foreach ($album as $key => $data)
-            <tr>
-                <td></td>
-                <td>{{ $data->title }}</td>
-                <td><a class="btn btn-success " href="/index/{{ $data->id }}/edit">
-                        <i class="fa fa-edit"></i>
-                        &nbsp;Edit
-                    </a>
-                </td>
-            </tr>
-        @endforeach
-    </table> --}}
+    
 
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
     <script>
