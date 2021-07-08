@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Album;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -14,16 +17,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        $crouselone = Post::where('key' , 'crouselone')->get();
-        $crouseltwo = Post::where('key' , 'crouseltwo')->get();
-        $crouselthree = Post::where('key' , 'crouselthree')->get();
+        $crouselone = Post::where('key', 'crouselone')->get();
+        $crouseltwo = Post::where('key', 'crouseltwo')->get();
+        $crouselthree = Post::where('key', 'crouselthree')->get();
         $principalmsgs = Post::where('key', 'pmsg')->get();
-        $sectionone = Post::where('key' , 'secone')->get();
-        $sectiontwo = Post::where('key' , 'sectwo')->get();
-        $sectionthree = Post::where('key' , 'secthree')->get();
-        $recentevent = Post::where('key' , 'recentevt')->get();
-        return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)
-        ->with('recentevent', $recentevent)->with('crouselone' ,$crouselone)->with('crouseltwo' , $crouseltwo)->with('crouselthree' , $crouselthree);
+        $sectionone = Post::where('key', 'secone')->get();
+        $sectiontwo = Post::where('key', 'sectwo')->get();
+        $sectionthree = Post::where('key', 'secthree')->get();
+        $recentevent = Post::where('key', 'recentevt')->get();
+        return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone', $sectionone)->with('sectiontwo', $sectiontwo)->with('sectionthree', $sectionthree)
+            ->with('recentevent', $recentevent)->with('crouselone', $crouselone)->with('crouseltwo', $crouseltwo)->with('crouselthree', $crouselthree);
     }
 
     /**
@@ -44,7 +47,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'key' => 'required',
             'title' => 'required',
             'value' => 'required',
@@ -59,9 +62,7 @@ class PostController extends Controller
         $post->image = $request->input('image');
         $post->save();
 
-        return redirect('/index/create')->with('success' , 'Post added');
-
-
+        return redirect('/index/create')->with('success', 'Post added');
     }
 
     /**
@@ -83,8 +84,24 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('backends.update.edit')->with('post',$post);
+        // check if the user is logged in or not
+        if (Auth::check()) {
+            // check to see whether the edit request is from gallery or not and direct to editalbum page
+            if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
+                $album = Album::find($id);
+                $images = DB::table('images')->get();
+                return view('backends.update.editalbum')->with('album', $album)->with('images' , $images);
+            }
+            // if the edit request is not from gallery execute the following and direct to edit page
+            else {
+                $post = Post::find($id);
+                return view('backends.update.edit')->with('post', $post);
+            }
+        } 
+        // if the user is not logged in redirect to login page
+        else {
+            return redirect('/login');
+        }
     }
 
     /**
@@ -92,26 +109,39 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param string $url
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            // 'key' => 'required',
-            'title' => 'required',
-            'value' => 'required',
-            'image' => 'required'
-        ]);
+        // check to see if the update request is initially from gallery by passing the previous url from the editalbum page
+        if ($request->input('url') == "/dash-board/gallery") {
+            $this->validate($request, [
+                'title' => 'required'
+            ]);
+            $album = Album::Find($id);
+            $album->title = $request->input('title');
+            $album->save();
+            return redirect('/dash-board/gallery')->with('success', 'Gallery page updated');
+        }
+        // if the initial update request is not from any of above execute the following
+        else {
+            $this->validate($request, [
+                'title' => 'required',
+                'value' => 'required',
+                'image' => 'required'
+            ]);
 
-        //create post
-        $post = Post::Find($id);
-        // $post->key = $request->input('key');
-        $post->title = $request->input('title');
-        $post->value = $request->input('value');
-        $post->image = $request->input('image');
-        $post->save();
+            //create post
+            $post = Post::Find($id);
+            // $post->key = $request->input('key');
+            $post->title = $request->input('title');
+            $post->value = $request->input('value');
+            $post->image = $request->input('image');
+            $post->save();
 
-        return redirect('/home')->with('success' , 'Post updated');
+            return redirect('/home')->with('success', 'Home page updated');
+        }
     }
 
     /**

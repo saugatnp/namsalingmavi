@@ -32,15 +32,15 @@
     </div> --}}
         <div class="form-group">
             {{ Form::label('title', 'Title') }}
-            {{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Tiaaatle']) }}
+            {{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Tiaaatle' , 'required']) }}
         </div>
         <div class="form-group">
             {{ Form::label('value', 'Enter Text Here') }}
-            {{ Form::textarea('value', $post->value, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Value']) }}
+            {{ Form::textarea('value', $post->value, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Value' ,'required']) }}
         </div>
         <div class="form-group">
             {{ Form::label('image', 'Image') }}
-            {{ Form::text('image', $post->image, ['class' => 'form-control', 'placeholder' => 'Image']) }}
+            {{ Form::text('image', $post->image, ['class' => 'form-control', 'placeholder' => 'Image' ,'required']) }}
         </div>
         {{ Form::hidden('_method', 'PUT') }}
         {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}

@@ -1,3 +1,4 @@
+<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
 <div class="topbar">
     <div id="navv" class="sticky-top">
         <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
@@ -12,7 +13,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item px-3">
                             <br/>
-                            <a class="nav-link active" aria-current="page" href="/login/home">HOME</a>
+                            <a class="nav-link active" aria-current="page" href="/login/home"><i class="fas fa-home"></i>HOME</a>
                         </li>
                         <li class="nav-item dropdown px-3">
                             <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" id="dropdownMenuLink"
@@ -20,15 +21,15 @@
                                 ACADEMICS
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/academics/academicslevel">Academic level</a></li>
-                                <li><a class="dropdown-item" href="/login/booklist">Book List</a></li>
-                                <li><a class="dropdown-item" href="/login/examroutine">Exam Routine</a></li>
+                                
+                                <li><a class="dropdown-item" href="/dash-board/booklist">Book List</a></li>
+                                <li><a class="dropdown-item" href="/dash-board/examroutine">Exam Routine</a></li>
                                 <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
 
                             </ul>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link active" aria-current="page" href="/gallery">GALLERY</a>
+                            <a class="nav-link active" aria-current="page" href="/dash-board/gallery">GALLERY</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link active" aria-current="page" href="/notice">NOTICE</a>
@@ -66,34 +67,36 @@
         <h1 style="color: bisque">&nbsp;Dashboard</h1>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item px-3">
-                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                <a class="nav-link active" aria-current="page" href="/home"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
             </li>
             <li class="nav-item dropdown px-3">
                 <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" id="dropdownMenuLink" role="button"
                     aria-expanded="false">
+                    <i class="fa fa-book"></i>&nbsp;&nbsp;
                     Academics
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="/academics/academicslevel">Academic level</a></li>
-                    <li><a class="dropdown-item" href="/login/booklist">Book List</a></li>
-                    <li><a class="dropdown-item" href="/login/examroutine">Exam Routine</a></li>
+                    <li><a class="dropdown-item" href="/dash-board/booklist">Book List</a></li>
+                    <li><a class="dropdown-item" href="/dash-board/examroutine">Exam Routine</a></li>
                     <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
 
                 </ul>
             </li>
             <li class="nav-item px-3">
-                <a class="nav-link active" aria-current="page" href="/gallery">Gallery</a>
+                <a class="nav-link active" aria-current="page" href="/dash-board/gallery"><i class="fa fa-image"></i>&nbsp;&nbsp;Gallery</a>
             </li>
             <li class="nav-item px-3">
-                <a class="nav-link active" aria-current="page" href="/notice">Notice</a>
+                <a class="nav-link active" aria-current="page" href="/notice"><i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Notice</a>
             </li>
 
             <li class="nav-item px-3">
-                <a class="nav-link disabled" href="/library" tabindex="-1" aria-disabled="true">Library</a>
+                <a class="nav-link disabled" href="/library" tabindex="-1" aria-disabled="true"><i class="fa fa-bookmark"></i></i>&nbsp;&nbsp;Library</a>
             </li>
             <li class="nav-item dropdown px-3">
                 <a class="nav-link dropdown-toggle " href="#" data-toggle="dropdown" id="dropdownMenuLink" role="button"
                     aria-expanded="false">
+                    <i class="fa fa-address-card"></i>&nbsp;&nbsp;
                     About Us
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -105,7 +108,7 @@
                 </ul>
             </li>
             <li class="nav-item px-3">
-                <a class="nav-link active" aria-current="page" href="/contactus">Contact Us</a>
+                <a class="nav-link active" aria-current="page" href="/contactus"><i class="fa fa-mobile"></i>&nbsp;&nbsp;Contact Us</a>
             </li>
             <li class="nav-item px-3">
                 <!-- Authentication Links -->
@@ -126,7 +129,7 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" v-pre>
-                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }} </strong>
+                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;{{ Auth::user()->name }} </strong>
                     </a>
 
 

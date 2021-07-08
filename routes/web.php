@@ -48,6 +48,7 @@ Route::resource('/index' , 'PostController');
 
 
 Auth::routes();
-Route::get('/login/booklist', [App\Http\Controllers\HomeController::class, 'booklist'])->middleware('auth');
-Route::get('/login/examroutine', [App\Http\Controllers\HomeController::class, 'examroutine'])->middleware('auth');
+Route::get('/dash-board/gallery', [App\Http\Controllers\HomeController::class, 'gallery'])->middleware('auth');
+Route::get('/dash-board/booklist', [App\Http\Controllers\HomeController::class, 'booklist'])->middleware('auth');
+Route::get('/dash-board/examroutine', [App\Http\Controllers\HomeController::class, 'examroutine'])->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');

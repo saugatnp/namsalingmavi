@@ -353,44 +353,43 @@ input[type="submit"]:hover {
     }
     #navv{
       background-color: black;
-    }  
-      
+    }   
 }
 .topbar {
     display: none;
 }
 .main-bar{
     display: flex;
+    background-color: #3e4040;
 }
 .sidebar {
-   
     height: 100vh;
     background: #000;
+    position: fixed;
 }
 
 .content {
+    margin-left: 24vw ;
     background-color: #3e4040;
     height: auto !important;
-    
     min-height: 100vh;
 }
 #editpage{
     margin-left:25%;
     margin-right:25%;
 }
-
 .mainback{
     height: auto;
-    min-height: 85vh;
+    min-height: 82vh;
     width:70vw;
     margin:5% 1% 5% 3%;
     background-color: white;
     border-radius: 1%;
-
+    
 }
 .back{
     margin:5%;
-    
+    padding-bottom: 5%;
 }
 /* .root{
     background-color: #3e4040;
@@ -579,5 +578,8 @@ section .section-title {
     height: 120px;
     border-radius: 50%;
 }
-
+.tableimg{
+    width:50px;
+    height:50px;
+}
 

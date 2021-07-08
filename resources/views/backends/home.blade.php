@@ -15,35 +15,35 @@
             @foreach ($crouselone as $croone)
             <td></td>
                 <td>{{$croone->title}}</td>
-                <td><a class="btn btn-success button5"  href="/index/{{$croone->id}}/edit" >Edit</a></td>
+                <td><a class="btn btn-success button5"  href="/index/{{$croone->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
               </tr>
             <tr>
             @foreach ($crouseltwo as $crotwo) 
             <td></td>
                 <td>{{$crotwo->title}}</td>
-                <td><a class="btn btn-success button5"  href="/index/{{$crotwo->id}}/edit" >Edit</a></td>
+                <td><a class="btn btn-success button5"  href="/index/{{$crotwo->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
                 </tr>
             <tr>
             @foreach ($crouselthree as $crothree)
             <td></td>
                 <td>{{$crothree->title}}</td>
-               <td> <a class="btn btn-success button5"  href="/index/{{$crothree->id}}/edit" >Edit</a></td>
+               <td> <a class="btn btn-success button5"  href="/index/{{$crothree->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
             </tr>
             <tr>
             @foreach ($principalmsgs as $pmsg)
             <td></td>
                 <td>{{$pmsg->title}}</td>
-               <td> <a class="btn btn-success button5"  href="/index/{{$pmsg->id}}/edit" >Edit</a></td>
+               <td> <a class="btn btn-success button5"  href="/index/{{$pmsg->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
             </tr>
             <tr>
             @foreach ($sectionone as $secone)
             <td></td>
                 <td>{{$secone->title}}</td>
-               <td> <a class="btn btn-success button5"  href="/index/{{$secone->id}}/edit" >Edit</a></td>
+               <td> <a class="btn btn-success button5"  href="/index/{{$secone->id}}/edit" ><i class="fa fa-edit"></i>&nbsp;Edit</a></td>
             @endforeach
             </tr>
            <tr>

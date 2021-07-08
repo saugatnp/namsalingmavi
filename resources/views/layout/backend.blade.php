@@ -6,7 +6,7 @@
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        
+        <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@
     <body >
       
         <div id="root">
-            @include('includes.messages')
             <div class="topbar">
                 @include('includes.sidebar')
             </div>
@@ -30,6 +29,7 @@
                     @include('includes.sidebar')
                 </div>
                 <div class="content col-sm-9">
+                    @include('includes.messages')
                     @yield('content')
                 </div>
             </div>
