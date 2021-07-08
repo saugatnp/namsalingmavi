@@ -28,10 +28,10 @@
                         <div class="col-sm-4 book0-10 ">
                                 <h5>Book List/Others</h5>
                                 <ul class="list-group">
-                                        @foreach ($bookone as $book)
+                                        {{-- @foreach ($bookone as $book)
                                         <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
                                                 {{$book->title}}
-                                                {{-- <a href="/home/{{$secthree->id}}/edit">Edit</a> --}}
+                                                
                                                 @endforeach
                                         </a>
                                         @foreach ($booktwo as $book)
@@ -48,8 +48,22 @@
                                         <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
                                                 {{$book->title}}
                                                 @endforeach
+                                        </a> --}}
+                                        {{-- @foreach ($image as $key => $data)
+            <tr>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ $data->photo }}" alt="School Day 2020" class="card-img" >
+                    </div>
+                </div>
+            </tr>
+        @endforeach --}}
+                                        @foreach($book as $key => $data)
+                                        <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$data->id}}">
+                                                {{$data->title}}
                                         </a>
-                                        @foreach ($bookfive as $book)
+                                        @endforeach
+                                        {{-- @foreach ($bookfive as $book)
                                         <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
                                                 {{$book->title}}
                                                 @endforeach
@@ -78,7 +92,7 @@
                                         <a class="active list-group-item-action list-group-item" href="/academics/booklist/{{$book->id}}">
                                                 {{$book->title}}
                                                 @endforeach
-                                        </a>
+                                        </a> --}}
                                 </ul>
                         </div>
                 </div>

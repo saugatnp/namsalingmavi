@@ -1,10 +1,27 @@
 @extends('layout.backend')
 
 @section('content')
-@foreach ($routine as $rout)
-<div class="active list-group-item-action list-group-item back">
-    {{ $rout->title }}&nbsp;&nbsp;
-    <a href="/index/{{ $rout->id }}/edit" class="btn btn-danger">Edit</a>
-@endforeach
+<div class="mainback">
+    <h1>Gallery</h1>
+    <div class="back">
+        <table cellpadding="0" style="width:100%;border: 1px solid black;">
+            <tr>
+                <th>S.N.</th>
+                <th>Album Name</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($routine as $key => $data)
+                <tr>
+                    <td></td>
+                    <td>{{ $data->title }}</td>
+                    <td><a class="btn btn-success " href="/index/{{ $data->id }}/edit">
+                            <i class="fa fa-edit"></i>
+                            &nbsp;Edit
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 </div>
 @endsection

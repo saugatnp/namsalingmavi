@@ -42,6 +42,7 @@
             {{ Form::label('image', 'Image') }}
             {{ Form::text('image', $post->image, ['class' => 'form-control', 'placeholder' => 'Image' ,'required']) }}
         </div>
+        {{ Form::hidden('url', $url = str_replace(url('/'), '', url()->previous())) }}
         {{ Form::hidden('_method', 'PUT') }}
         {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
         {!! Form::close() !!}
