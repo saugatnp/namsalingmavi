@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Album;
+use App\Models\Notice;
 
 class HomeController extends Controller
 {
@@ -52,7 +53,7 @@ class HomeController extends Controller
         $album = DB::table('albums')->get();
         return view('backends.gallery')->with('album' , $album);
     }
-    public function addalbum(Request $request){
+    public function add(Request $request){
         
         $this->validate($request, [
             'title' => 'required'
@@ -72,6 +73,17 @@ class HomeController extends Controller
             $routine->save();
             return redirect('/dash-board/examroutine')->with('success' , 'New Routine Added');
         }
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/notice"){
+            $notice = new Notice;
+            $notice->title=$request->input('title');
+            $notice->image=$request->input('image');
+            $notice->save();
+            return redirect('/dash-board/notice')->with('success' , 'New Notice Added');
+        }
+    }
+    public function notice(){
+        $notice = DB::table('notices')->get();
+        return view('backends.notice')->with('notice',$notice);
     }
 
 }

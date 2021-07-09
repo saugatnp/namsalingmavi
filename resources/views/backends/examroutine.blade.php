@@ -28,7 +28,7 @@
             @endforeach
         </table>
         {{--  add new album --}}
-        {!! Form::open(array('action' => 'HomeController@addalbum', 'method' => 'POST')) !!}
+        {!! Form::open(array('action' => 'HomeController@add', 'method' => 'POST')) !!}
         <div class="form-group">
             {{ Form::label('title', 'Add new routine') }}
             {{ Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Add new routine']) }}

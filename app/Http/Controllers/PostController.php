@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Album;
 use App\Models\Image;
+use App\Models\Notice;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -102,8 +103,8 @@ class PostController extends Controller
                 $images = DB::table('images')->get();
                 return view('backends.update.editalbum')->with('album', $album)->with('images' , $images);
             }
-            // if the edit request is not from gallery execute the following and direct to edit page
-            else {
+            // if the edit request is from home or booklit or examroutine following code will execute
+            elseif(str_replace(url('/'), '', url()->previous()) == "/home" || "/dash-board/booklist" || "/dash-board/examroutine") {
                 $post = Post::find($id);
                 return view('backends.update.edit')->with('post', $post);
             }
@@ -200,6 +201,11 @@ class PostController extends Controller
             $routine = Post::Find($id);
             $routine->delete();
             return redirect('/dash-board/examroutine')->with('success' ,'Routine deleted');
+        }
+        elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/notice") {
+            $notice = Post::Find($id);
+            $notice->delete();
+            return redirect('/dash-board/notice')->with('success' ,'Notice deleted');
         }
         else {
             $image = Image::Find($id);

@@ -30,7 +30,7 @@
                             <a class="nav-link active" aria-current="page" href="/dash-board/gallery">GALLERY</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link active" aria-current="page" href="/notice">NOTICE</a>
+                            <a class="nav-link active" aria-current="page" href="/dash-board/notice">NOTICE</a>
                         </li>
 
                         <li class="nav-item px-3">
@@ -85,7 +85,7 @@
                 <a class="nav-link active" aria-current="page" href="/dash-board/gallery"><i class="fa fa-image"></i>&nbsp;&nbsp;Gallery</a>
             </li>
             <li class="nav-item px-3">
-                <a class="nav-link active" aria-current="page" href="/notice"><i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Notice</a>
+                <a class="nav-link active" aria-current="page" href="/dash-board/notice"><i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Notice</a>
             </li>
 
             <li class="nav-item px-3">
