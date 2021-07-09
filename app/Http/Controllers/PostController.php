@@ -141,15 +141,30 @@ class PostController extends Controller
                 $this->validate($request, [
                     'title' => 'required',
                     'value' => 'required',
-                    'image' => 'required'
+                    'image' => 'image|max:1999'
                 ]);
+                if($request->hasFile('image')){
+                    //get file name with extension
+                    $fileNameWithExt = $request->file('image')->getClientOriginalName();
+                    // get just file name 
+                    $filename = pathinfo($fileNameWithExt , PATHINFO_FILENAME);
+                    // get just extension
+                    $extension = $request->file('image')->getClientOriginalExtension();
+                    //filename to store
+                    $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                    //upload image
+                    $path = $request->file('image')->storeAs('public/images' , $fileNameToStore);
+                }
 
                 //create post
                 $post = Post::Find($id);
                 // $post->key = $request->input('key');
                 $post->title = $request->input('title');
                 $post->value = $request->input('value');
-                $post->image = $request->input('image');
+                //check if image is uploaded else keep same value
+                if($request->hasFile('image')){
+                    $post->image = $fileNameToStore;
+                }
                 $post->save();
                 if($request->input('url') == "/dash-board/examroutine"){
                     return redirect('dash-board/examroutine')->with('success' , "Exam routine updated");
