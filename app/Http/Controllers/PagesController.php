@@ -27,6 +27,11 @@ class PagesController extends Controller
         $notice = DB::table('notices')->get();
         return view('pages.notice')->with('notice' , $notice);
     }
+    public function noticedetail($id)
+    {
+        $viewnotice = Notice::where('id' , $id)->get();
+        return view('pages.noticedetail')->with('detail',$viewnotice);
+    }
     public function library()
     {
         return view('pages.library');

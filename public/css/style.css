@@ -690,3 +690,8 @@ hr {
     width:50vw;
 
 }
+.photo{
+    width:60vw;
+    margin:5px 5px;
+    height: auto;
+}
