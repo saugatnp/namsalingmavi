@@ -25,7 +25,7 @@
     <a href="{{ url()->previous() }}" class="btn btn-success button4">Go Back</a>
     <div id="editpage">
 
-        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST']) !!}
+        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST' , 'enctype' => 'multipart/form-data' ]) !!}
         {{-- <div class="form-group">
         {{Form::label('key' , 'Key')}}
         {{Form::text('key' , $post->key , ['class' => 'form-control' , 'placeholder' => 'Key' ,'required'=>'true'])}}
@@ -38,9 +38,13 @@
             {{ Form::label('value', 'Enter Text Here') }}
             {{ Form::textarea('value', $post->value, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Value' ,'required']) }}
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             {{ Form::label('image', 'Image') }}
             {{ Form::text('image', $post->image, ['class' => 'form-control', 'placeholder' => 'Image' ,'required']) }}
+        </div> --}}
+        <div class="form-group">
+            {{ Form::label('image', 'Image') }}
+            {{ Form::file('image', ['class' => 'form-control', 'placeholder' => 'Image']) }}
         </div>
         {{ Form::hidden('url', $url = str_replace(url('/'), '', url()->previous())) }}
         {{ Form::hidden('_method', 'PUT') }}

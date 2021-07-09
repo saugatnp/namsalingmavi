@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Album;
+
 class HomeController extends Controller
 {
     /**
@@ -50,4 +52,26 @@ class HomeController extends Controller
         $album = DB::table('albums')->get();
         return view('backends.gallery')->with('album' , $album);
     }
+    public function addalbum(Request $request){
+        
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+        if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
+            $album = new Album;
+            $album->title = $request->input('title');
+            $album->save();
+            return redirect('/dash-board/gallery')->with('success', 'New Album Added');
+        }
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine"){
+            $routine = new Post;
+            $routine->key='routine';
+            $routine->title=$request->input('title');
+            $routine->value=$request->input('title');
+            $routine->image='noimage.jpg';
+            $routine->save();
+            return redirect('/dash-board/examroutine')->with('success' , 'New Routine Added');
+        }
+    }
+
 }

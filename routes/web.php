@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PostController;
 ;
 
 /*
@@ -43,12 +44,18 @@ Route::get('/academics/booklist/{id?}' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
 Route::resource('/index' , 'PostController');
-
+Route::post('addalbum', ['uses' => 'HomeController@addalbum']);
 ///back end routes
 
-
+// Route::resource('photos', PhotoController::class)->only([
+//     'index', 'show'
+// ]);
 Auth::routes();
 Route::get('/dash-board/gallery', [App\Http\Controllers\HomeController::class, 'gallery'])->middleware('auth');
 Route::get('/dash-board/booklist', [App\Http\Controllers\HomeController::class, 'booklist'])->middleware('auth');
 Route::get('/dash-board/examroutine', [App\Http\Controllers\HomeController::class, 'examroutine'])->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');
+
+
+Route::post('/index/{id}', [PostController::class, 'store'])->middleware('auth');
+

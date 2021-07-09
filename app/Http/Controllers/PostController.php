@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Album;
+use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -43,26 +44,35 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request , $id)
     {
         $this->validate($request, [
-            'key' => 'required',
-            'title' => 'required',
-            'value' => 'required',
-            'image' => 'required'
+            'photo' => 'image|max:1999'
         ]);
-
+        //handle file upload
+        if($request->hasFile('photo')){
+            //get file name with extension
+            $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+            // get just file name 
+            $filename = pathinfo($fileNameWithExt , PATHINFO_FILENAME);
+            // get just extension
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            //filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('photo')->storeAs('public/images' , $fileNameToStore);
+        }
+        
         //create post
-        $post = new Post;
-        $post->key = $request->input('key');
-        $post->title = $request->input('title');
-        $post->value = $request->input('value');
-        $post->image = $request->input('image');
+        $post = new Image;
+        $post->album_id = $id;
+        $post->photo = $fileNameToStore;
         $post->save();
 
-        return redirect('/index/create')->with('success', 'Post added');
+        return redirect('/dash-board/gallery')->with('success', 'Image added');
     }
 
     /**
@@ -109,7 +119,7 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @param string $url
+     * 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -131,15 +141,30 @@ class PostController extends Controller
                 $this->validate($request, [
                     'title' => 'required',
                     'value' => 'required',
-                    'image' => 'required'
+                    'image' => 'image|max:1999'
                 ]);
+                if($request->hasFile('image')){
+                    //get file name with extension
+                    $fileNameWithExt = $request->file('image')->getClientOriginalName();
+                    // get just file name 
+                    $filename = pathinfo($fileNameWithExt , PATHINFO_FILENAME);
+                    // get just extension
+                    $extension = $request->file('image')->getClientOriginalExtension();
+                    //filename to store
+                    $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                    //upload image
+                    $path = $request->file('image')->storeAs('public/images' , $fileNameToStore);
+                }
 
                 //create post
                 $post = Post::Find($id);
                 // $post->key = $request->input('key');
                 $post->title = $request->input('title');
                 $post->value = $request->input('value');
-                $post->image = $request->input('image');
+                //check if image is uploaded else keep same value
+                if($request->hasFile('image')){
+                    $post->image = $fileNameToStore;
+                }
                 $post->save();
                 if($request->input('url') == "/dash-board/examroutine"){
                     return redirect('dash-board/examroutine')->with('success' , "Exam routine updated");
@@ -162,8 +187,24 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id )
     {
-        //
+        if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
+            $album = Album::Find($id);
+            $image = Image::where('album_id' , $id);
+            $image->delete();
+            $album->delete();
+            return redirect('/dash-board/gallery')->with('success' ,'Album deleted');
+        }
+        elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine") {
+            $routine = Post::Find($id);
+            $routine->delete();
+            return redirect('/dash-board/examroutine')->with('success' ,'Routine deleted');
+        }
+        else {
+            $image = Image::Find($id);
+            $image->delete();
+            return redirect('/dash-board/gallery')->with('success' ,'Image deleted');
+        }
     }
 }

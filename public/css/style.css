@@ -417,10 +417,17 @@ table {
     padding: 5px;
     text-align: left;
   }
-  .card , .card-img{
+  .card {
       height: 100%;
       width: 100%;
   }
+  .card-img{
+      height:100%;
+  }
+  .card-body{
+      width:100%;
+  }
+  
 
 /* css for about us page */
 

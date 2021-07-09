@@ -17,32 +17,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('js/bootstrap.js') }}">
-    {{-- <style>
-        table {
-            counter-reset: rowNumber;
-        }
-
-        table tr td:first-child::before {
-            display: table-cell;
-            counter-increment: rowNumber;
-            content: counter(rowNumber) ".";
-
-        }
-
-        table,
-        tr,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 5px;
-            text-align: left;
-        }
-
-    </style> --}}
 </head>
 
 <body>
@@ -52,8 +26,9 @@
         {!! Form::open(['action' => ['PostController@update', $album->id], 'method' => 'POST']) !!}
         <div class="form-group">
             {{ Form::label('title', 'Title') }}
-            {{ Form::text('title', $album->title, ['class' => 'form-control', 'placeholder' => 'Tiaaatle']) }}
+            {{ Form::text('title', $album->title, ['class' => 'form-control', 'placeholder' => 'Title']) }}
         </div>
+
         {{ Form::hidden('url', $url = str_replace(url('/'), '', url()->previous())) }}
         {{ Form::hidden('_method', 'PUT') }}
         {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
@@ -63,11 +38,16 @@
         <div class="mainback">
             <h1>Gallery</h1>
             <div class="back">
-
+                {!! Form::open(['action' => ['PostController@store', $album->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                <div class="form-group">
+                    {{ Form::file('photo',['required']) }}
+                </div>
+                {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
+                {!! Form::close() !!}
                 <table cellpadding="0" style="width:100%;border: 1px solid black;">
                     <tr>
                         <th>S.N.</th>
-                        <th>Album Name</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                     @foreach ($images as $key => $data)
@@ -75,20 +55,23 @@
                             <tr>
                                 <td></td>
                                 <td><img src="{{ $data->photo }}" class="tableimg"></td>
-                                <td><a class="btn btn-success " href="/index/{{ $data->id }}/edit">
-                                        <i class="fa fa-edit"></i>
-                                        &nbsp;Delete
-                                    </a>
+                                <td>
+                                    {{-- code to delete an image --}}
+                                    {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST'])!!}
+                                    {{Form::hidden('_method' ,'DELETE')}}
+                                    <button type="submit" name="Delete" value="Delete" class = "btn btn-primary">Delete</button> 
+                                    {{-- {{Form::submit('Delete' , ['class' => 'btn btn-primary'])}} --}}
+                                    {!!Form::close()!!}
                                 </td>
                             </tr>
-                            @endif
-                @endforeach
+                        @endif
+                    @endforeach
                 </table>
-                
+
             </div>
         </div>
     </center>
-    
+
 
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
     <script>

@@ -4,11 +4,11 @@
         <div class="exam-routine">
                 
                 <div class="col-md-8">
-                        @foreach($routine as $rout)
-                        <h1> {{$rout->title}} </h1>
-                        <p> {!!$rout->value!!}
+                        @foreach ($routine as $key => $data)
+                        <h1> {{$data->title}} </h1>
+                        <p> {!!$data->value!!}
                         </p>
-                        <img src="{{$rout->image}}" width="100%">
+                        <img src="{{$data->image}}" width="100%">
                         @endforeach
                 </div>
 
