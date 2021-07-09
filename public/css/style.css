@@ -668,4 +668,25 @@ ul{
     height:50px;
 }
 
+.contents{
+    margin-left :30px;
+    margin-top: 50px;
+    font-size:35px;
+    text-align:center;
+}
 
+hr {
+    margin: 20px 0;
+    border: 4px solid rgb(158, 28, 28);
+}
+
+.dtt{
+    margin-right:1600px;
+    font-size:18px;
+}
+.notice{
+    text-align:center;
+
+    width:50vw;
+
+}
