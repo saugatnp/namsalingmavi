@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Album;
 use App\Models\Image;
+use App\Models\Notice;
 use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
@@ -23,7 +24,8 @@ class PagesController extends Controller
         return view('pages.images')->with('image' , $images)->with('title' , $title);
     }
     public function notice(){
-        return view('pages.notice');
+        $notice = DB::table('notices')->get();
+        return view('pages.notice')->with('notice' , $notice);
     }
     public function library()
     {
@@ -32,18 +34,19 @@ class PagesController extends Controller
     public function contactus(){
         return view('pages.contactus');
     }
-    public function aboutus(){
-        return view('pages.aboutus');
-    }
     public function schoolprofile(){
-        return view('pages.aboutus.schoolprofile');
+        $post = Post::where('key' ,'schoolprofile')->get();
+        return view('pages.aboutus.schoolprofile')->with('post' , $post);
     }
     public function bot(){
-        $teach = Post::where('key' ,'timage')->get();
-        return view('pages.aboutus.bot')->with('teach' ,$teach);
+        $principal = Post::where('key' , 'principal')->get();
+        $viceprincipal = Post::where('key' , 'viceprincipal')->get();
+        $teach = Post::where('key' ,'teacher')->get();
+        return view('pages.aboutus.bot')->with('teach' ,$teach)->with('principal' , $principal)->with('viceprincipal' , $viceprincipal);
     }
     public function smsc(){
-        return view('pages.aboutus.smsc');
+        $smc = Post::where('key' , 'smc')->get();
+        return view('pages.aboutus.smsc')->with('smc' , $smc);
     }
     public function cont(){
         return view('pages.aboutus.cont');
