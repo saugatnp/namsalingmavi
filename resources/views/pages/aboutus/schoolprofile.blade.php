@@ -1,15 +1,27 @@
 @extends('layout.app')
 
 @section('content')
-<div class="col-md"><h2 Style="text-align:center;" class="c01163">History & School Profile</h2>
-
-<a href="https://bnks.edu.np/uploads/page/page-20191221201150-256.jpg" target="_blank" rel="noopener noreferrer">
-<img class="w-100 mb-3" src="https://bnks.edu.np/uploads/page/page-20191221201150-256.jpg" alt="History"></a>
-<div class="text-justify" style="  text-align: justify; text-justify: inter-word;">
-  <p>The idea of establishing a model school that would provide quality all-round education to meritorious students coming from every walk of life in an environment that fosters unity in diversity was conceived in 1964. &nbsp;The idea was initiated by the Late King Mahendra in consultation with the then British Council representative, Lynndon Clough.
-
-After much planning and forethought, Budhanilkantha School came into existence in 1972. As a joint venture between the Government of the United Kingdom and the Government of Nepal, the Nepali government provided the required land and the British government provided all the technical and financial assistance.</p>
-
-
+<h3 style="text-align:center; margin-top:50px;">School Profile and History</h3>
+<section class="wrapper-info">
+  <div class="row">
+      <div class="col-sm-6 info-div">
+          <div>
+            <div class="info-img" style="align-content:center;">
+              <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
+            </div>&nbsp;
+          </div>
+      </div>
+     
+      <div class="col-sm-6 info-div">
+        <div>
+          <p>
+                We integrate both the traditional formal exam system with modern thematic evaluation procedure through assessing individual performances. A series of class evaluations, observation of behavioral changes, performances in thematic assignments will be recorded and made available in the individual roster both manual and electronic forms.
+                We integrate both the traditional formal exam system with modern thematic evaluation procedure through assessing individual performances. A series of class evaluations, observation of behavioral changes, performances in thematic assignments will be recorded and made available in the individual roster both manual and electronic forms.
+          </p>
+        </div>
+      </div>
+  </div>
+         
+</section>
         
  @endsection

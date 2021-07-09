@@ -42,7 +42,7 @@
                                 |       
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://www.facebook.com/bnksofficial/" target="_blank" title="Facebook" class="c0132" rel="noopener noreferrer">
+                                <a href="https://www.facebook.com/Namsaling-secondary-school-1039472906234748" target="_blank" title="Facebook" class="c0132" rel="noopener noreferrer">
                                     <span class="fa fa-facebook">
                                     </span>
                                 </a>

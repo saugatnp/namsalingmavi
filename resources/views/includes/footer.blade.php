@@ -6,17 +6,17 @@
 				<h3 class="text-color" >Namsaling High School</h3>
                 <br/>
 				<p class="footer-links ">
-					<a href="#" class="text-color footer-company-about">Home</a>
+					<a href="/index" class="text-color footer-company-about">Home</a>
 					·
-					<a href="#" class="text-color footer-company-about">Academics</a>
+					<a href="/academics/booklist" class="text-color footer-company-about">Academics</a>
 					·
-					<a href="#" class="text-color footer-company-about">Gallery</a>
+					<a href="/gallery" class="text-color footer-company-about">Gallery</a>
 					·
-					<a href="#" class="text-color footer-company-about">Library</a>
+					<a href="/library" class="text-color footer-company-about">Library</a>
 					·
-					<a href="#" class="text-color footer-company-about">About Us</a>
+					<a href="aboutus/bot" class="text-color footer-company-about">About Us</a>
 					·
-					<a href="#" class="text-color footer-company-about">Contact Us</a>
+					<a href="/contactus" class="text-color footer-company-about">Contact Us</a>
 				</p>
 
 				<p class="footer-company-about text-color">Copyright © 2021 Namsaling high School.</p>
@@ -50,9 +50,8 @@
 
 				<div class="footer-icons">
 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-youtube"></i></a>
+					<center><a href="https://www.facebook.com/Namsaling-secondary-school-1039472906234748"><i class="fa fa-facebook"></i></a></center>
+					
 
 				</div>
 
