@@ -34,6 +34,7 @@ Route::get('/aboutus' , 'PagesController@aboutus');
 Route::get('/gallery' , 'PagesController@gallery');
 Route::get('/gallery/images/{id?}' , 'PagesController@images');
 Route::get('/notice', 'PagesController@notice');
+Route::get('/notice/viewdetails/{id?}', 'PagesController@noticedetail');
 Route::get('/academics' , 'PagesController@academics');
 Route::get('/aboutus/schoolprofile','PagesController@schoolprofile');
 Route::get('/aboutus/bot','PagesController@bot');

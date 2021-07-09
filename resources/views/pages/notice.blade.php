@@ -8,7 +8,7 @@
                 <div class="contents">
                     <p>{{ $data->title }}</p>
                     <p class="dtt">2020/2/3</p>
-                    <button class="btn btn-primary"> View Details</button>
+                    <a href="/notice/viewdetails/{{$data->id}}"><button class="btn btn-primary">View Details</button></a>
                 </div>
                 <hr />
             @endforeach
