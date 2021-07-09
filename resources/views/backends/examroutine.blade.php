@@ -21,7 +21,7 @@
                         {{-- code to delete routine --}}
                         {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','class'=>'pull-right '])!!}
                         {{Form::hidden('_method' ,'DELETE')}}
-                        <button type="submit" name="Delete" value="Delete" class = "btn btn-primary">Delete</button> 
+                        <button type="button" name="Delete" value="Delete" class = "btn btn-primary" >Delete</button> 
                         {!!Form::close()!!}
                     </td>
                 </tr>

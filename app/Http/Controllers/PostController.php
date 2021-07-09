@@ -61,7 +61,7 @@ class PostController extends Controller
             // get just extension
             $extension = $request->file('photo')->getClientOriginalExtension();
             //filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $fileNameToStore = 'FILE_'.time().'.'.$extension;
             //upload image
             $path = $request->file('photo')->storeAs('public/images' , $fileNameToStore);
         }
@@ -151,7 +151,7 @@ class PostController extends Controller
                     // get just extension
                     $extension = $request->file('image')->getClientOriginalExtension();
                     //filename to store
-                    $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                    $fileNameToStore = 'FILE_'.time().'.'.$extension;
                     //upload image
                     $path = $request->file('image')->storeAs('public/images' , $fileNameToStore);
                 }
