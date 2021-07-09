@@ -25,7 +25,7 @@
     <a href="{{ url()->previous() }}" class="btn btn-success button4">Go Back</a>
     <div id="editpage">
 
-        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST' , 'enctype' => 'multipart/form-data' ]) !!}
+        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST' , 'enctype' => 'multipart/form-data' ,'onsubmit' => 'return confirm("are you sure ?")']) !!}
         {{-- <div class="form-group">
         {{Form::label('key' , 'Key')}}
         {{Form::text('key' , $post->key , ['class' => 'form-control' , 'placeholder' => 'Key' ,'required'=>'true'])}}

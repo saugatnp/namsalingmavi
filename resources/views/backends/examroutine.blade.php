@@ -19,9 +19,9 @@
                             &nbsp;Edit
                         </a>
                         {{-- code to delete routine --}}
-                        {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','class'=>'pull-right '])!!}
+                        {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','class'=>'pull-right','onsubmit' => 'return confirm("are you sure ?")'])!!}
                         {{Form::hidden('_method' ,'DELETE')}}
-                        <button type="button" name="Delete" value="Delete" class = "btn btn-primary" >Delete</button> 
+                        <button type="submit" name="Delete" value="Delete" class = "btn btn-primary" >Delete</button> 
                         {!!Form::close()!!}
                     </td>
                 </tr>

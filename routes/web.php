@@ -57,6 +57,8 @@ Route::get('/dash-board/booklist', [App\Http\Controllers\HomeController::class, 
 Route::get('/dash-board/examroutine', [App\Http\Controllers\HomeController::class, 'examroutine'])->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');
 Route::get('/dash-board/notice' ,[App\Http\Controllers\HomeController::class, 'notice'])->middleware('auth');
-
+Route::get('/dash-board/schoolprofile' ,[App\Http\Controllers\HomeController::class, 'schoolprofile'])->middleware('auth');
+Route::get('/dash-board/bot' ,[App\Http\Controllers\HomeController::class, 'bot'])->middleware('auth');
+Route::get('/dash-board/smsc' ,[App\Http\Controllers\HomeController::class, 'smsc'])->middleware('auth');
 Route::post('/index/{id}', [PostController::class, 'store'])->middleware('auth');
 

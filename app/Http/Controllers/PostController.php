@@ -104,7 +104,7 @@ class PostController extends Controller
                 return view('backends.update.editalbum')->with('album', $album)->with('images' , $images);
             }
             // if the edit request is from home or booklit or examroutine following code will execute
-            elseif(str_replace(url('/'), '', url()->previous()) == "/home" || "/dash-board/booklist" || "/dash-board/examroutine") {
+            elseif(str_replace(url('/'), '', url()->previous()) == "/home" || "/dash-board/booklist" || "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc" || "/dash-board/schoolprofile") {
                 $post = Post::find($id);
                 return view('backends.update.edit')->with('post', $post);
             }
@@ -173,6 +173,15 @@ class PostController extends Controller
                 elseif($request->input('url') == "/dash-board/booklist"){
                     return redirect('dash-board/booklist')->with('success' , "Book list updated");
                 }
+                elseif($request->input('url') == "/dash-board/schoolprofile"){
+                    return redirect('dash-board/schoolprofile')->with('success' , "School Profile updated");
+                }
+                elseif($request->input('url') == "/dash-board/bot"){
+                    return redirect('dash-board/bot')->with('success' , "Faculty updated");
+                }
+                elseif($request->input('url') == "/dash-board/smsc"){
+                    return redirect('dash-board/smsc')->with('success' , "School Comittee updated");
+                }
                 return redirect('/home')->with('success', 'Home page updated');
             }
         } 
@@ -190,6 +199,7 @@ class PostController extends Controller
      */
     public function destroy($id )
     {
+        echo "destroy called";
         if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
             $album = Album::Find($id);
             $image = Image::where('album_id' , $id);
@@ -197,13 +207,14 @@ class PostController extends Controller
             $album->delete();
             return redirect('/dash-board/gallery')->with('success' ,'Album deleted');
         }
-        elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine") {
+        elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc") {
             $routine = Post::Find($id);
             $routine->delete();
-            return redirect('/dash-board/examroutine')->with('success' ,'Routine deleted');
+            return redirect(''.str_replace(url('/'), '', url()->previous()).'')->with('success' ,'Deleted');
         }
         elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/notice") {
-            $notice = Post::Find($id);
+            echo "destroy called";
+            $notice = Notice::Find($id);
             $notice->delete();
             return redirect('/dash-board/notice')->with('success' ,'Notice deleted');
         }

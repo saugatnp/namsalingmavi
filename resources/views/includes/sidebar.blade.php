@@ -98,9 +98,9 @@
                     About Us
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/aboutus/schoolprofile">School Profile & History</a></li>
-                    <li><a class="dropdown-item" href="/aboutus/bot">Teachers</a></li>
-                    <li><a class="dropdown-item" href="/aboutus/smsc">School Management Comittee</a></li>
+                    <li><a class="dropdown-item" href="/dash-board/schoolprofile">School Profile & History</a></li>
+                    <li><a class="dropdown-item" href="/dash-board/bot">Teachers</a></li>
+                    <li><a class="dropdown-item" href="/dash-board/smsc">School Management Comittee</a></li>
                    
 
                 </ul>

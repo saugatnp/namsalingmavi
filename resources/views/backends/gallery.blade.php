@@ -20,11 +20,20 @@
                                 &nbsp;Edit
                             </a>
                             {{-- code to delete album --}}
-                            {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','class'=>'pull-right '])!!}
+                            {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','class'=>'pull-right ' ,'onsubmit' => 'return confirm("are you sure ?")'])!!}
                             {{Form::hidden('_method' ,'DELETE')}}
-                            <button type="submit" name="Delete" value="Delete" class = "btn btn-primary">Delete</button> 
+                            <button type="submit" id="submit" name="Delete" value="Delete" class = "btn btn-primary">Delete</button> 
                             {{-- {{Form::submit('Delete' , ['class' => 'btn btn-primary'])}} --}}
                             {!!Form::close()!!}
+                            {{-- <script>
+                            jQuery(document).ready(function($){
+                                $('.deleteGroup').on('submit',function(e){
+                                   if(!confirm('Do you want to delete this item?')){
+                                         e.preventDefault();
+                                   }
+                                 });
+                           });
+                           </script> --}}
                         </td>
                     </tr>
                 @endforeach

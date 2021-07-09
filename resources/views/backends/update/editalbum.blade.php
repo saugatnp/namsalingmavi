@@ -57,7 +57,7 @@
                                 <td><img src="{{ $data->photo }}" class="tableimg"></td>
                                 <td>
                                     {{-- code to delete an image --}}
-                                    {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST'])!!}
+                                    {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','onsubmit' => 'return confirm("are you sure ?")'])!!}
                                     {{Form::hidden('_method' ,'DELETE')}}
                                     <button type="submit" name="Delete" value="Delete" class = "btn btn-primary">Delete</button> 
                                     {{-- {{Form::submit('Delete' , ['class' => 'btn btn-primary'])}} --}}

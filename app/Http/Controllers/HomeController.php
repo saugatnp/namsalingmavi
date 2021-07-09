@@ -80,10 +80,42 @@ class HomeController extends Controller
             $notice->save();
             return redirect('/dash-board/notice')->with('success' , 'New Notice Added');
         }
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/bot"){
+            $routine = new Post;
+            $routine->key='teacher';
+            $routine->title=$request->input('title');
+            $routine->value=$request->input('title');
+            $routine->image='noimage.jpg';
+            $routine->save();
+            return redirect('/dash-board/bot')->with('success' , 'New Faculty Added');
+        }
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/smsc"){
+            $routine = new Post;
+            $routine->key='smc';
+            $routine->title=$request->input('title');
+            $routine->value=$request->input('title');
+            $routine->image='noimage.jpg';
+            $routine->save();
+            return redirect('/dash-board/smsc')->with('success' , 'New Faculty Added');
+        }
     }
     public function notice(){
         $notice = DB::table('notices')->get();
         return view('backends.notice')->with('notice',$notice);
+    }
+    public function schoolprofile(){
+        $profile = Post::where('key' , 'schoolprofile')->get();
+        return view('backends.schoolprofile')->with('profile' , $profile);
+    }
+    public function bot(){
+        $teacher = Post::where('key' ,'teacher')->get();
+        $principal = Post::where('key' , 'principal')->get();
+        $viceprincipal = post::where('key' , 'viceprincipal')->get();
+        return view('backends.bot')->with('principal' , $principal)->with('viceprincipal' , $viceprincipal)->with('teacher' , $teacher);
+    }
+    public function smsc(){
+        $smsc = Post::where('key' , 'smc')->get();
+        return view('backends.smsc')->with('smsc' , $smsc);
     }
 
 }
