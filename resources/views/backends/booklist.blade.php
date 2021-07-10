@@ -10,6 +10,7 @@
                     <th>Album Name</th>
                     <th>Action</th>
                 </tr>
+                {{-- display all the book list --}}
                 @foreach ($book as $key => $data)
                     <tr>
                         <td></td>

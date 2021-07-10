@@ -10,6 +10,7 @@
                     <th>Title</th>
                     <th>Action</th>
                 </tr>
+                {{-- diplasy all the data --}}
                 @foreach ($profile as $key => $data)
                     <tr>
                         <td></td>

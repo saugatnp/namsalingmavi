@@ -26,96 +26,117 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    //function to fetch home page dashboard data
     public function index()
     {
         $principalmsgs = Post::where('key', 'pmsg')->get();
-        $sectionone = Post::where('key' , 'secone')->get();
-        $sectiontwo = Post::where('key' , 'sectwo')->get();
-        $sectionthree = Post::where('key' , 'secthree')->get();
-        $recentevent = Post::where('key' , 'recentevt')->get();
-        $crouselone = Post::where('key' , 'crouselone')->get();
-        $crouseltwo = Post::where('key' , 'crouseltwo')->get();
-        $crouselthree = Post::where('key' , 'crouselthree')->get();
-        return view('backends.home')->with('principalmsgs', $principalmsgs)->with('sectionone',$sectionone)->with('sectiontwo',$sectiontwo)->with('sectionthree',$sectionthree)
-        ->with('recentevent', $recentevent)->with('crouselone' ,$crouselone)->with('crouseltwo' , $crouseltwo)->with('crouselthree' , $crouselthree);
-        
+        $sectionone = Post::where('key', 'secone')->get();
+        $sectiontwo = Post::where('key', 'sectwo')->get();
+        $sectionthree = Post::where('key', 'secthree')->get();
+        $recentevent = Post::where('key', 'recentevt')->get();
+        $crouselone = Post::where('key', 'crouselone')->get();
+        $crouseltwo = Post::where('key', 'crouseltwo')->get();
+        $crouselthree = Post::where('key', 'crouselthree')->get();
+        return view('backends.home')->with('principalmsgs', $principalmsgs)->with('sectionone', $sectionone)->with('sectiontwo', $sectiontwo)->with('sectionthree', $sectionthree)
+            ->with('recentevent', $recentevent)->with('crouselone', $crouselone)->with('crouseltwo', $crouseltwo)->with('crouselthree', $crouselthree);
     }
-    public function booklist(){
-        $book = Post::where('key' ,'book')->get();
-        return view('backends.booklist')->with('book' , $book);
-
+    //function to fetch booklist dashboard data
+    public function booklist()
+    {
+        $book = Post::where('key', 'book')->get();
+        return view('backends.booklist')->with('book', $book);
     }
-    public function examroutine(){
-        $routine = Post::where('key' , 'routine')->get(); 
-        return view('backends.examroutine')->with('routine' , $routine);
+    //function to fetch examroutine dashboard data
+    public function examroutine()
+    {
+        $routine = Post::where('key', 'routine')->get();
+        return view('backends.examroutine')->with('routine', $routine);
     }
-    public function gallery(){
+    //function to fetch gallery dashboard data
+    public function gallery()
+    {
         $album = DB::table('albums')->get();
-        return view('backends.gallery')->with('album' , $album);
+        return view('backends.gallery')->with('album', $album);
     }
-    public function add(Request $request){
-        
+    //function to add data into database
+    public function add(Request $request)
+    {
+
         $this->validate($request, [
             'title' => 'required'
         ]);
+        //selects request from gallery and adds new album
         if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
             $album = new Album;
             $album->title = $request->input('title');
             $album->save();
             return redirect('/dash-board/gallery')->with('success', 'New Album Added');
         }
-        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine"){
+        //selects request from examroutine and adds new routine
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine") {
             $routine = new Post;
-            $routine->key='routine';
-            $routine->title=$request->input('title');
-            $routine->value=$request->input('title');
-            $routine->image='noimage.jpg';
+            $routine->key = 'routine';
+            $routine->title = $request->input('title');
+            //pass a default value we can edit it later
+            $routine->value = $request->input('title');
+            $routine->image = 'noimage.jpg';
             $routine->save();
-            return redirect('/dash-board/examroutine')->with('success' , 'New Routine Added');
+            return redirect('/dash-board/examroutine')->with('success', 'New Routine Added');
         }
-        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/notice"){
+        //selects request from notice page and adds new notice
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/notice") {
             $notice = new Notice;
-            $notice->title=$request->input('title');
-            $notice->image=$request->input('image');
+            $notice->title = $request->input('title');
+            //default value can edit it later
+            $notice->image = $request->input('image');
             $notice->save();
-            return redirect('/dash-board/notice')->with('success' , 'New Notice Added');
+            return redirect('/dash-board/notice')->with('success', 'New Notice Added');
         }
-        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/bot"){
+        //selects request from bot page 
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/bot") {
             $routine = new Post;
-            $routine->key='teacher';
-            $routine->title=$request->input('title');
-            $routine->value=$request->input('title');
-            $routine->image='noimage.jpg';
+            $routine->key = 'teacher';
+            $routine->title = $request->input('title');
+            $routine->value = $request->input('title');
+            $routine->image = 'noimage.jpg';
             $routine->save();
-            return redirect('/dash-board/bot')->with('success' , 'New Faculty Added');
+            return redirect('/dash-board/bot')->with('success', 'New Faculty Added');
         }
-        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/smsc"){
+        //selects request ffrom smsc page
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/smsc") {
             $routine = new Post;
-            $routine->key='smc';
-            $routine->title=$request->input('title');
-            $routine->value=$request->input('title');
-            $routine->image='noimage.jpg';
+            $routine->key = 'smc';
+            $routine->title = $request->input('title');
+            $routine->value = $request->input('title');
+            $routine->image = 'noimage.jpg';
             $routine->save();
-            return redirect('/dash-board/smsc')->with('success' , 'New Faculty Added');
+            return redirect('/dash-board/smsc')->with('success', 'New Faculty Added');
         }
     }
-    public function notice(){
+    //function to fetch data for dashboard notice page
+    public function notice()
+    {
         $notice = DB::table('notices')->get();
-        return view('backends.notice')->with('notice',$notice);
+        return view('backends.notice')->with('notice', $notice);
     }
-    public function schoolprofile(){
-        $profile = Post::where('key' , 'schoolprofile')->get();
-        return view('backends.schoolprofile')->with('profile' , $profile);
+    //function to fetch data for dashboard schoolprofile page
+    public function schoolprofile()
+    {
+        $profile = Post::where('key', 'schoolprofile')->get();
+        return view('backends.schoolprofile')->with('profile', $profile);
     }
-    public function bot(){
-        $teacher = Post::where('key' ,'teacher')->get();
-        $principal = Post::where('key' , 'principal')->get();
-        $viceprincipal = post::where('key' , 'viceprincipal')->get();
-        return view('backends.bot')->with('principal' , $principal)->with('viceprincipal' , $viceprincipal)->with('teacher' , $teacher);
+    //function to fetch data for bot page
+    public function bot()
+    {
+        $teacher = Post::where('key', 'teacher')->get();
+        $principal = Post::where('key', 'principal')->get();
+        $viceprincipal = post::where('key', 'viceprincipal')->get();
+        return view('backends.bot')->with('principal', $principal)->with('viceprincipal', $viceprincipal)->with('teacher', $teacher);
     }
-    public function smsc(){
-        $smsc = Post::where('key' , 'smc')->get();
-        return view('backends.smsc')->with('smsc' , $smsc);
+    //fucntion to fetch data for smsc page
+    public function smsc()
+    {
+        $smsc = Post::where('key', 'smc')->get();
+        return view('backends.smsc')->with('smsc', $smsc);
     }
-
 }

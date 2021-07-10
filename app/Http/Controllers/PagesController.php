@@ -8,65 +8,81 @@ use App\Models\Album;
 use App\Models\Image;
 use App\Models\Notice;
 use Illuminate\Support\Facades\DB;
-
+//contains code to fetch data for main pages
 class PagesController extends Controller
 {
-    public function gallery(){
-        // $user = DB::table('users_tb')->paginate(1);
-        // $img = DB::table('images')->get();
-        $img = Image::select('album_id' ,'photo')->get();
+    //function to fetch all the albums and also the first image from the album to display in the gallery page
+    public function gallery()
+    {
+        $img = Image::select('album_id', 'photo')->get();
         $album = DB::table('albums')->get();
-        return view('pages.gallery')->with('album' , $album)->with('images' , $img);
+        return view('pages.gallery')->with('album', $album)->with('images', $img);
     }
-    public function images($id){
-        $title = Album::where('id' , $id)->get();
-        $images = Image::where('album_id' , $id)->get();
-        return view('pages.images')->with('image' , $images)->with('title' , $title);
+    //function to fetch images from the selected album after receiving album id as params
+    public function images($id)
+    {
+        $title = Album::where('id', $id)->get();
+        $images = Image::where('album_id', $id)->get();
+        return view('pages.images')->with('image', $images)->with('title', $title);
     }
-    public function notice(){
+    //function to fetch all the notices
+    public function notice()
+    {
         $notice = DB::table('notices')->get();
-        return view('pages.notice')->with('notice' , $notice);
+        return view('pages.notice')->with('notice', $notice);
     }
+    //function to fetch the detailes notice with the notice id passed in the parameter
     public function noticedetail($id)
     {
-        $viewnotice = Notice::where('id' , $id)->get();
-        return view('pages.noticedetail')->with('detail',$viewnotice);
+        $viewnotice = Notice::where('id', $id)->get();
+        return view('pages.noticedetail')->with('detail', $viewnotice);
     }
+    //function for library page
     public function library()
     {
         return view('pages.library');
     }
-    public function contactus(){
+    //function for contact us page
+    public function contactus()
+    {
         return view('pages.contactus');
     }
-    public function schoolprofile(){
-        $post = Post::where('key' ,'schoolprofile')->get();
-        return view('pages.aboutus.schoolprofile')->with('post' , $post);
+    //function to display the content of school profile page
+    public function schoolprofile()
+    {
+        $post = Post::where('key', 'schoolprofile')->get();
+        return view('pages.aboutus.schoolprofile')->with('post', $post);
     }
-    public function bot(){
-        $principal = Post::where('key' , 'principal')->get();
-        $viceprincipal = Post::where('key' , 'viceprincipal')->get();
-        $teach = Post::where('key' ,'teacher')->get();
-        return view('pages.aboutus.bot')->with('teach' ,$teach)->with('principal' , $principal)->with('viceprincipal' , $viceprincipal);
+    //function to fetch the faculty members list
+    public function bot()
+    {
+        $principal = Post::where('key', 'principal')->get();
+        $viceprincipal = Post::where('key', 'viceprincipal')->get();
+        $teach = Post::where('key', 'teacher')->get();
+        return view('pages.aboutus.bot')->with('teach', $teach)->with('principal', $principal)->with('viceprincipal', $viceprincipal);
     }
-    public function smsc(){
-        $smc = Post::where('key' , 'smc')->get();
-        return view('pages.aboutus.smsc')->with('smc' , $smc);
+    //function to fetch the comittee members list
+    public function smsc()
+    {
+        $smc = Post::where('key', 'smc')->get();
+        return view('pages.aboutus.smsc')->with('smc', $smc);
     }
-    public function cont(){
-        return view('pages.aboutus.cont');
-    } 
-    
-    public function booklist($id = '14'){
-        $post = Post::where('id' , $id)->get();
-        $book = Post::where('key' ,'book')->get();
-        return view('pages.academics.booklist')->with('post' , $post)->with('book' , $book);
+    //function to display the booklist 
+    public function booklist($id = '14')
+    {
+        $post = Post::where('id', $id)->get();
+        $book = Post::where('key', 'book')->get();
+        return view('pages.academics.booklist')->with('post', $post)->with('book', $book);
     }
-    public function examresult(){
+    //function for result page
+    public function examresult()
+    {
         return view('pages.academics.examresult');
     }
-    public function examroutine(){
-        $routine = Post::where('key' , 'routine')->get();
-        return view('pages.academics.examroutine')->with('routine' , $routine);
+    //function to view all the exam routine
+    public function examroutine()
+    {
+        $routine = Post::where('key', 'routine')->get();
+        return view('pages.academics.examroutine')->with('routine', $routine);
     }
 }

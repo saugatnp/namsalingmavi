@@ -9,6 +9,7 @@
             <tr>
                 <div class="col-md-4 mb-4">
                     <div class="card">
+                        {{-- <img src="/storage/images/{{ $data->photo }}" alt="{{$titles->title}}" class="card-img" > --}}
                         <img src="{{ $data->photo }}" alt="{{$titles->title}}" class="card-img" >
                     </div>
                 </div>

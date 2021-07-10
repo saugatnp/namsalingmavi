@@ -11,6 +11,7 @@
                     <tr>
                         <div class="col-md-4 mb-3">
                             <div class="card">
+                                {{-- <a href="/gallery/images/{{ $data->id }}" class="card-img"><img src="/storage/images/{{ $img->photo }}" --}}
                                 <a href="/gallery/images/{{ $data->id }}" class="card-img"><img src="{{ $img->photo }}"
                                         alt="{{$data->title}}" class="card-img"></a>
                                 <div class="card-body">

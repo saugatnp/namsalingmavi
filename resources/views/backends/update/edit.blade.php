@@ -4,55 +4,41 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-        integrity="undefined" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/bootstrap.js') }}">
-
 </head>
 
 <body>
     @include('includes.messages')
     <a href="{{ url()->previous() }}" class="btn btn-success button4">Go Back</a>
     <div id="editpage">
-
-        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST' , 'enctype' => 'multipart/form-data' ,'onsubmit' => 'return confirm("are you sure ?")']) !!}
-        {{-- <div class="form-group">
-        {{Form::label('key' , 'Key')}}
-        {{Form::text('key' , $post->key , ['class' => 'form-control' , 'placeholder' => 'Key' ,'required'=>'true'])}}
-    </div> --}}
+        {{-- calls update funtion from postcontroller and passes the id --}}
+        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data', 'onsubmit' => 'return confirm("are you sure ?")']) !!}
+        {{-- text area for title --}}
         <div class="form-group">
             {{ Form::label('title', 'Title') }}
-            {{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Tiaaatle' , 'required']) }}
+            {{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Tiaaatle', 'required']) }}
         </div>
+        {{-- text area for value --}}
         <div class="form-group">
             {{ Form::label('value', 'Enter Text Here') }}
-            {{ Form::textarea('value', $post->value, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Value' ,'required']) }}
+            {{ Form::textarea('value', $post->value, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Value', 'required']) }}
         </div>
-        {{-- <div class="form-group">
-            {{ Form::label('image', 'Image') }}
-            {{ Form::text('image', $post->image, ['class' => 'form-control', 'placeholder' => 'Image' ,'required']) }}
-        </div> --}}
+        {{-- area for image --}}
         <div class="form-group">
             {{ Form::label('image', 'Image') }}
             {{ Form::file('image', ['class' => 'form-control', 'placeholder' => 'Image']) }}
         </div>
+        {{-- we pass pervious url through post method to check where the request is comming from --}}
         {{ Form::hidden('url', $url = str_replace(url('/'), '', url()->previous())) }}
+        {{-- passing the method as put for this route --}}
         {{ Form::hidden('_method', 'PUT') }}
         {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
         {!! Form::close() !!}
     </div>
-
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
+    {{-- script for ck editor --}}
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'))

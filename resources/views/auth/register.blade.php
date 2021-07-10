@@ -21,6 +21,7 @@
         </div>
     </div>
 </div>
+{{-- uncomment the below code and comment the above code to display the register page to regiser a new user --}}
 <!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -4,31 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-        integrity="undefined" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/bootstrap.js') }}">
 </head>
 
 <body>
     @include('includes.messages')
     <a href="{{ url()->previous() }}" class="btn btn-success button4">Go Back</a>
     <div id="editpage">
+        {{-- callers update funtion and passes id --}}
         {!! Form::open(['action' => ['PostController@update', $album->id], 'method' => 'POST']) !!}
         <div class="form-group">
+            {{-- to update the album name we display previous name and send the new name to update --}}
             {{ Form::label('title', 'Title') }}
             {{ Form::text('title', $album->title, ['class' => 'form-control', 'placeholder' => 'Title']) }}
         </div>
-
+        {{-- passes the previous url to check where the request is comming from --}}
         {{ Form::hidden('url', $url = str_replace(url('/'), '', url()->previous())) }}
         {{ Form::hidden('_method', 'PUT') }}
         {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
@@ -36,11 +28,16 @@
     </div>
     <center>
         <div class="mainback">
-            <h1>Gallery</h1>
+            <h1>{{$album->title}}</h1>
             <div class="back">
+                {{-- to add new images to the album we pass the album id and the file to store function in postcontroller --}}
                 {!! Form::open(['action' => ['PostController@store', $album->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                {{-- <div class="form-group">
+                    {{ Form::file('photo', ['required']) }}
+                </div> --}}
                 <div class="form-group">
-                    {{ Form::file('photo',['required']) }}
+                    {{ Form::label('image', 'Add Image') }}
+                    {{ Form::file('photo', ['class' => 'form-control', 'placeholder' => 'Image' , 'required']) }}
                 </div>
                 {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
                 {!! Form::close() !!}
@@ -57,22 +54,19 @@
                                 <td><img src="{{ $data->photo }}" class="tableimg"></td>
                                 <td>
                                     {{-- code to delete an image --}}
-                                    {!!Form::open(['action'=>['PostController@destroy' ,$data->id ], 'method'=>'POST','onsubmit' => 'return confirm("are you sure ?")'])!!}
-                                    {{Form::hidden('_method' ,'DELETE')}}
-                                    <button type="submit" name="Delete" value="Delete" class = "btn btn-primary">Delete</button> 
-                                    {{-- {{Form::submit('Delete' , ['class' => 'btn btn-primary'])}} --}}
-                                    {!!Form::close()!!}
+                                    {!! Form::open(['action' => ['PostController@destroy', $data->id], 'method' => 'POST', 'onsubmit' => 'return confirm("are you sure ?")']) !!}
+                                    {{ Form::hidden('_method', 'DELETE') }}
+                                    <button type="submit" name="Delete" value="Delete"
+                                        class="btn btn-primary">Delete</button>
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                         @endif
                     @endforeach
                 </table>
-
             </div>
         </div>
     </center>
-
-
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor

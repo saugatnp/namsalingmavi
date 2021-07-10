@@ -17,6 +17,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //function to display main home page data
     public function index()
     {
         $crouselone = Post::where('key', 'crouselone')->get();
@@ -38,7 +39,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        // return view('backends.home');
+        // 
     }
 
     /**
@@ -48,31 +49,30 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , $id)
+    public function store(Request $request, $id)
     {
         $this->validate($request, [
             'photo' => 'image|max:1999'
         ]);
         //handle file upload
-        if($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             //get file name with extension
             $fileNameWithExt = $request->file('photo')->getClientOriginalName();
             // get just file name 
-            $filename = pathinfo($fileNameWithExt , PATHINFO_FILENAME);
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             // get just extension
             $extension = $request->file('photo')->getClientOriginalExtension();
             //filename to store
-            $fileNameToStore = 'FILE_'.time().'.'.$extension;
+            $fileNameToStore = 'FILE_' . time() . '.' . $extension;
             //upload image
-            $path = $request->file('photo')->storeAs('public/images' , $fileNameToStore);
+            $path = $request->file('photo')->storeAs('public/images', $fileNameToStore);
         }
-        
-        //create post
+        //create new row in image table
         $post = new Image;
         $post->album_id = $id;
+        //save the file name as the name we just created
         $post->photo = $fileNameToStore;
         $post->save();
-
         return redirect('/dash-board/gallery')->with('success', 'Image added');
     }
 
@@ -101,14 +101,14 @@ class PostController extends Controller
             if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
                 $album = Album::find($id);
                 $images = DB::table('images')->get();
-                return view('backends.update.editalbum')->with('album', $album)->with('images' , $images);
+                return view('backends.update.editalbum')->with('album', $album)->with('images', $images);
             }
-            // if the edit request is from home or booklit or examroutine following code will execute
-            elseif(str_replace(url('/'), '', url()->previous()) == "/home" || "/dash-board/booklist" || "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc" || "/dash-board/schoolprofile") {
+            // if the edit request is from home or booklit or examroutine or bot or smsc or school profile following code will execute
+            elseif (str_replace(url('/'), '', url()->previous()) == "/home" || "/dash-board/booklist" || "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc" || "/dash-board/schoolprofile") {
                 $post = Post::find($id);
                 return view('backends.update.edit')->with('post', $post);
             }
-        } 
+        }
         // if the user is not logged in redirect to login page
         else {
             return redirect('/login');
@@ -133,6 +133,7 @@ class PostController extends Controller
                     'title' => 'required'
                 ]);
                 $album = Album::Find($id);
+                //changes the album title
                 $album->title = $request->input('title');
                 $album->save();
                 return redirect('/dash-board/gallery')->with('success', 'Gallery page updated');
@@ -144,47 +145,43 @@ class PostController extends Controller
                     'value' => 'required',
                     'image' => 'image|max:1999'
                 ]);
-                if($request->hasFile('image')){
+                if ($request->hasFile('image')) {
                     //get file name with extension
                     $fileNameWithExt = $request->file('image')->getClientOriginalName();
                     // get just file name 
-                    $filename = pathinfo($fileNameWithExt , PATHINFO_FILENAME);
+                    $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
                     // get just extension
                     $extension = $request->file('image')->getClientOriginalExtension();
                     //filename to store
-                    $fileNameToStore = 'FILE_'.time().'.'.$extension;
+                    $fileNameToStore = 'FILE_' . time() . '.' . $extension;
                     //upload image
-                    $path = $request->file('image')->storeAs('public/images' , $fileNameToStore);
+                    $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
                 }
 
                 //create post
                 $post = Post::Find($id);
-                // $post->key = $request->input('key');
                 $post->title = $request->input('title');
                 $post->value = $request->input('value');
                 //check if image is uploaded else keep same value
-                if($request->hasFile('image')){
+                if ($request->hasFile('image')) {
                     $post->image = $fileNameToStore;
                 }
                 $post->save();
-                if($request->input('url') == "/dash-board/examroutine"){
-                    return redirect('dash-board/examroutine')->with('success' , "Exam routine updated");
-                }
-                elseif($request->input('url') == "/dash-board/booklist"){
-                    return redirect('dash-board/booklist')->with('success' , "Book list updated");
-                }
-                elseif($request->input('url') == "/dash-board/schoolprofile"){
-                    return redirect('dash-board/schoolprofile')->with('success' , "School Profile updated");
-                }
-                elseif($request->input('url') == "/dash-board/bot"){
-                    return redirect('dash-board/bot')->with('success' , "Faculty updated");
-                }
-                elseif($request->input('url') == "/dash-board/smsc"){
-                    return redirect('dash-board/smsc')->with('success' , "School Comittee updated");
+                //condition to check and return to respective pages the request came form
+                if ($request->input('url') == "/dash-board/examroutine") {
+                    return redirect('dash-board/examroutine')->with('success', "Exam routine updated");
+                } elseif ($request->input('url') == "/dash-board/booklist") {
+                    return redirect('dash-board/booklist')->with('success', "Book list updated");
+                } elseif ($request->input('url') == "/dash-board/schoolprofile") {
+                    return redirect('dash-board/schoolprofile')->with('success', "School Profile updated");
+                } elseif ($request->input('url') == "/dash-board/bot") {
+                    return redirect('dash-board/bot')->with('success', "Faculty updated");
+                } elseif ($request->input('url') == "/dash-board/smsc") {
+                    return redirect('dash-board/smsc')->with('success', "School Comittee updated");
                 }
                 return redirect('/home')->with('success', 'Home page updated');
             }
-        } 
+        }
         // if the user is not logged in redirect to login page
         else {
             return redirect('/login');
@@ -197,31 +194,35 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id )
+    public function destroy($id)
     {
-        echo "destroy called";
+        //check if destroy request is from gallery page
         if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
             $album = Album::Find($id);
-            $image = Image::where('album_id' , $id);
+            $image = Image::where('album_id', $id);
+            //deletes the image from the album to be deleted
             $image->delete();
+            //delete the album finally
             $album->delete();
-            return redirect('/dash-board/gallery')->with('success' ,'Album deleted');
+            return redirect('/dash-board/gallery')->with('success', 'Album deleted');
         }
-        elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc") {
+        //check if request id from routine or bot or smsc pages
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc") {
             $routine = Post::Find($id);
             $routine->delete();
-            return redirect(''.str_replace(url('/'), '', url()->previous()).'')->with('success' ,'Deleted');
+            return redirect('' . str_replace(url('/'), '', url()->previous()) . '')->with('success', 'Deleted');
         }
-        elseif(str_replace(url('/'), '', url()->previous()) == "/dash-board/notice") {
-            echo "destroy called";
+        //check if request is from notice page
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/notice") {
             $notice = Notice::Find($id);
             $notice->delete();
-            return redirect('/dash-board/notice')->with('success' ,'Notice deleted');
+            return redirect('/dash-board/notice')->with('success', 'Notice deleted');
         }
+        //else it deltes the image 
         else {
             $image = Image::Find($id);
             $image->delete();
-            return redirect('/dash-board/gallery')->with('success' ,'Image deleted');
+            return redirect('/dash-board/gallery')->with('success', 'Image deleted');
         }
     }
 }
