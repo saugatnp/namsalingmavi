@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="mainback">
-        <h1>Gallery</h1>
+        <h1>Galleryy</h1>
         <div class="back">
             <table cellpadding="0" style="width:100%;border: 1px solid black;">
                 <tr>
