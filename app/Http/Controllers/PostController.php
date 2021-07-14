@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Album;
-use App\Models\Image;
+use App\Models\Imagee;
 use App\Models\Notice;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageServiceProvider;
+use Intervention\Image\Facades\Image;
+
 
 class PostController extends Controller
 {
@@ -52,9 +55,11 @@ class PostController extends Controller
     public function store(Request $request, $id)
     {
         $this->validate($request, [
-            'photo' => 'image|max:1999'
+            'photo' => 'image|max:15999'
         ]);
+        echo "aasbdbasdbadasdasdasd";
         //handle file upload
+        $x = 10;
         if ($request->hasFile('photo')) {
             //get file name with extension
             $fileNameWithExt = $request->file('photo')->getClientOriginalName();
@@ -65,11 +70,17 @@ class PostController extends Controller
             //filename to store
             $fileNameToStore = 'FILE_' . time() . '.' . $extension;
             //upload image
-            $path = $request->file('photo')->storeAs('public/images', $fileNameToStore);
+            $image = $request->file('photo');
+            echo "aad";
+            $img = Image::make($image);
+            echo $fileNameToStore;
+            $img->save(\public_path('/storage/images/' . $fileNameToStore), $x);
+            echo $fileNameToStore;
         }
         //create new row in image table
-        $post = new Image;
+        $post = new Imagee;
         $post->album_id = $id;
+        echo $fileNameToStore;
         //save the file name as the name we just created
         $post->photo = $fileNameToStore;
         $post->save();
@@ -100,7 +111,7 @@ class PostController extends Controller
             // check to see whether the edit request is from gallery or not and direct to editalbum page
             if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
                 $album = Album::find($id);
-                $images = DB::table('images')->get();
+                $images = DB::table('imagees')->get();
                 return view('backends.update.editalbum')->with('album', $album)->with('images', $images);
             }
             // if the edit request is from home or booklit or examroutine or bot or smsc or school profile following code will execute
@@ -143,8 +154,9 @@ class PostController extends Controller
                 $this->validate($request, [
                     'title' => 'required',
                     'value' => 'required',
-                    'image' => 'image|max:1999'
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:20048'
                 ]);
+                $x = 10;
                 if ($request->hasFile('image')) {
                     //get file name with extension
                     $fileNameWithExt = $request->file('image')->getClientOriginalName();
@@ -155,7 +167,19 @@ class PostController extends Controller
                     //filename to store
                     $fileNameToStore = 'FILE_' . time() . '.' . $extension;
                     //upload image
-                    $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+                    $image = $request->file('image');
+
+                    $img = Image::make($image);
+                    $img->save(\public_path('/storage/images/' . $fileNameToStore), $x);
+                    // $image = Image::make($compress);
+                    // $img->resize(250, 250, function ($constraint) {
+                    //     $constraint->aspectRatio();
+                    // })->save($destination,$fileNameToStore);
+                    // $destination = public_path('/storage/images');
+                    // $image->move($destination,$fileNameToStore);
+                    // ->save('public/images/'.$fileNameToStore);
+
+                    // $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
                 }
 
                 //create post
@@ -199,7 +223,7 @@ class PostController extends Controller
         //check if destroy request is from gallery page
         if (str_replace(url('/'), '', url()->previous()) == "/dash-board/gallery") {
             $album = Album::Find($id);
-            $image = Image::where('album_id', $id);
+            $image = Imagee::where('album_id', $id);
             //deletes the image from the album to be deleted
             $image->delete();
             //delete the album finally
@@ -220,7 +244,7 @@ class PostController extends Controller
         }
         //else it deltes the image 
         else {
-            $image = Image::Find($id);
+            $image = Imagee::Find($id);
             $image->delete();
             return redirect('/dash-board/gallery')->with('success', 'Image deleted');
         }

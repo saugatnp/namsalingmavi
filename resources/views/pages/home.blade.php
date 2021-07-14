@@ -8,7 +8,8 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         @foreach ($crouselone as $croone)
-          <img src="{{$croone->image}}" class="d-block w-100" style="opacity: 0.8;" alt="...">
+        
+          <img src="{{asset('storage/images/'.$croone->image)}}" class="d-block w-100" style="opacity: 0.8;" alt="...">
           <div class="carousel-content">
             {{$croone->title}}
           </div>
@@ -16,7 +17,7 @@
       </div>
       <div class="carousel-item">
         @foreach ($crouseltwo as $crotwo)
-        <img src="{{$crotwo->image}}" class="d-block w-100" style="opacity: 0.8;"alt="...">
+        <img src="{{asset('storage/images/'.$crotwo->image)}}" class="d-block w-100" style="opacity: 0.8;"alt="...">
         <div class="carousel-content">
           {{$crotwo->title}}
         </div>
@@ -24,7 +25,7 @@
       </div>
       <div class="carousel-item">
         @foreach($crouselthree as $crothree)
-        <img src="{{$crothree->image}}" class="d-block w-100" style="opacity: 0.8;" alt="...">
+        <img src="{{asset('storage/images/'.$crothree->image)}}" class="d-block w-100" style="opacity: 0.8;" alt="...">
         <div class="carousel-content">
           {{$crothree->title}}
         </div>
@@ -49,12 +50,13 @@
       @foreach ($principalmsgs as $principalmsg)
         <h3>{{$principalmsg->title}}</h3>
         {!!$principalmsg->value!!}
-      @endforeach
+      
     
     </div>
   <div style="text-align: center;">
     <div id="welcome-img">
-      <img src="https://mymodernmet.com/wp/wp-content/uploads/2021/01/morphy-me-celebrity-face-mashups-15.jpg" class="principalimage">
+      <img src="{{asset('storage/images/'.$principalmsg->image)}}" class="principalimage">
+      @endforeach
     </div>
     <strong>Pradeep Kumar Dev, Principal</strong>
   </div>
@@ -63,10 +65,11 @@
   <div class="row">
       <div class="col-sm-4 info-div">
           <div>
+               @foreach ($sectionone as $secone)
             <div class="info-img" style=" align-content:center;">
-              <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
+              <img src="{{asset('storage/images/'.$secone->image)}}" class="info-img">
             </div>
-            @foreach ($sectionone as $secone)
+           
             <h2>
                 {{$secone->title}}
             </h2>
@@ -80,10 +83,11 @@
      
       <div class="col-sm-4 info-div">
           <div>
+              @foreach ($sectiontwo as $sectwo)
             <div class="info-img" style="align-content:center;">
-              <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
+              <img src="{{asset('storage/images/'.$sectwo->image)}}" class="info-img">
             </div>
-            @foreach ($sectiontwo as $sectwo)
+            
             <h2>
                 {{$sectwo->title}}
             </h2>
@@ -96,10 +100,11 @@
       </div>
       <div class="col-sm-4 info-div">
         <div >
+            @foreach ($sectionthree as $secthree)
           <div class="info-img" >
-            <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
+            <img src="{{asset('storage/images/'.$secthree->image)}}" class="info-img">
           </div>
-          @foreach ($sectionthree as $secthree)
+          
             <h2>
                 {{$secthree->title}}
             </h2>
@@ -117,10 +122,11 @@
           <h1>Recent Events</h1>
           <div class="event-div">
             <div >
+                @foreach ($recentevent as $recevt)
               <div class="info-img" >
-                <img src="https://cache.1ms.net/1920x1440/emma-watson-very-high-quality-1920x1440_101862.jpg" class="info-img">
+                <img src="{{asset('storage/images/'.$recevt->image)}}" class="info-img">
               </div>
-              @foreach ($recentevent as $recevt)
+              
             <h2>
                 {{$recevt->title}}
             </h2>

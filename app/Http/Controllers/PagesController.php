@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Album;
-use App\Models\Image;
+use App\Models\Imagee;
 use App\Models\Notice;
 use Illuminate\Support\Facades\DB;
 //contains code to fetch data for main pages
@@ -14,7 +14,7 @@ class PagesController extends Controller
     //function to fetch all the albums and also the first image from the album to display in the gallery page
     public function gallery()
     {
-        $img = Image::select('album_id', 'photo')->get();
+        $img = Imagee::select('album_id', 'photo')->get();
         $album = DB::table('albums')->get();
         return view('pages.gallery')->with('album', $album)->with('images', $img);
     }
@@ -22,7 +22,7 @@ class PagesController extends Controller
     public function images($id)
     {
         $title = Album::where('id', $id)->get();
-        $images = Image::where('album_id', $id)->get();
+        $images = Imagee::where('album_id', $id)->get();
         return view('pages.images')->with('image', $images)->with('title', $title);
     }
     //function to fetch all the notices
