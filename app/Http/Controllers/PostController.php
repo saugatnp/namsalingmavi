@@ -230,8 +230,20 @@ class PostController extends Controller
             $album->delete();
             return redirect('/dash-board/gallery')->with('success', 'Album deleted');
         }
-        //check if request id from routine or bot or smsc pages
+        //check if request id from routine  pages
         elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/examroutine" || "/dash-board/bot" || "/dash-board/smsc") {
+            $routine = Post::Find($id);
+            $routine->delete();
+            return redirect('' . str_replace(url('/'), '', url()->previous()) . '')->with('success', 'Deleted');
+        }
+        //check if request id from  bot pages
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/bot") {
+            $routine = Post::Find($id);
+            $routine->delete();
+            return redirect('' . str_replace(url('/'), '', url()->previous()) . '')->with('success', 'Deleted');
+        }
+        //check if request id from smsc pages
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/smsc") {
             $routine = Post::Find($id);
             $routine->delete();
             return redirect('' . str_replace(url('/'), '', url()->previous()) . '')->with('success', 'Deleted');
