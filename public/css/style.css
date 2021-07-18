@@ -183,7 +183,86 @@ footer {
     justify-content: space-around;
     flex-wrap: wrap;
 }
-#welcome-msg {
+.hm {
+    position: relative;
+    height: auto;
+    margin: 0px !important;
+    padding: 0px;
+    background: #d7eafc;
+}
+.mcontent {
+    position: relative;
+}
+.mpage {
+    position: relative;
+    margin: 0px !important;
+    padding: 5%;
+    font-family: "Avenir LT W01 55 Roman";
+}
+.openquote {
+    position: absolute;
+    z-index: 44;
+    top:5%;
+    position: absolute;
+}
+.himg {
+    position: relative;
+}
+.pimg {
+    position: relative;
+    padding: 70px 0 120px;
+}
+.hpimg{
+    background-size: cover !important;
+    width: 50%;
+    height:auto;
+    border-radius: 10px;
+    z-index: 30;
+    position: relative;
+    box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+.hmsg {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    background: #fff;
+    width: 60%;
+    min-height:55vh;
+    padding: 7% 5% 0% 10%;
+    box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+.closequote {
+    position: absolute;
+    bottom: -11%;
+    z-index: 44;
+    position: absolute;
+    right:0%;
+}
+.ptext{
+    text-align: justify;
+    margin-left:10%;
+}
+@media (max-width: 850px){
+.hmsg {
+    position: relative;
+    top: -30px;
+    right: 0;
+    width: 100%;
+    padding: 12% 5% 5px;
+}
+.pimg{
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 12% 5% 5px;
+}
+.hpimg{
+    width:100%;
+}
+}
+/* #welcome-msg {
     margin: 40px;
     width: 70vw;
     height: auto;
@@ -204,9 +283,17 @@ footer {
     height: 300px;
     border-radius: 50%;
     border-color: var(--yellow);
+} */
+.vl {
+    border-left: 2px solid var(--blue);
+    height: 100px;
+    position: relative;
+    left: 50%;
+    margin: 10px;
+    display: inline-block;
 }
 .wrapper-info {
-    margin: 40px;
+    margin: 30px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -214,14 +301,20 @@ footer {
 }
 .info-img {
     width: 100%;
+    padding: 0%;
     height: auto;
     background-size: cover !important;
+    border-radius: 20px 20px 70px 0px;
 }
-
+.sectiontext {
+    margin: 15px;
+}
 .info-div {
     display: flex;
-    border-right: 2px solid #e1e1e1;
-    /* border-style: groove; */
+    padding: 0% !important;
+    margin: 30px;
+    box-shadow: 7px 15px 30px 6px rgba(128, 128, 128, 0.7);
+    border-radius: 20px;
 }
 #events {
     margin-top: 40px;
@@ -231,6 +324,7 @@ footer {
     flex-wrap: wrap;
 }
 #recentevents {
+    border-radius: 2%;
     margin: 20px;
     width: 40vw;
     height: auto;

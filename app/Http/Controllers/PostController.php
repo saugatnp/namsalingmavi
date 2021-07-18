@@ -57,7 +57,6 @@ class PostController extends Controller
         $this->validate($request, [
             'photo' => 'image|max:15999'
         ]);
-        echo "aasbdbasdbadasdasdasd";
         //handle file upload
         $x = 10;
         if ($request->hasFile('photo')) {
@@ -71,7 +70,6 @@ class PostController extends Controller
             $fileNameToStore = 'FILE_' . time() . '.' . $extension;
             //upload image
             $image = $request->file('photo');
-            echo "aad";
             $img = Image::make($image);
             echo $fileNameToStore;
             $img->save(\public_path('/storage/images/' . $fileNameToStore), $x);
