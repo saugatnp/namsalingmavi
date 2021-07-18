@@ -55,7 +55,7 @@
                     <div class="himg">
                         <div class="pimg">
                             <img src="https://www.alverno.edu/images/quote_open.png" class="openquote">
-                            <img src="https://www.alverno.edu/files/_cache/3b63b2d2fde1214fc02736b79f5b2311.png"
+                            <img src="{{ asset('storage/images/' . $principalmsg->image) }}"
                                 class="hpimg">
                         </div>
                         <div class="hmsg">

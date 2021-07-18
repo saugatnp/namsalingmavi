@@ -177,12 +177,12 @@ footer {
         font-size: auto;
     }
 }
-#welcome {
+/* #welcome {
     margin-top: 40px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}
+} */
 .hm {
     position: relative;
     height: auto;
@@ -215,7 +215,7 @@ footer {
 .hpimg{
     background-size: cover !important;
     width: 50%;
-    height:auto;
+    height:60vh;
     border-radius: 10px;
     z-index: 30;
     position: relative;
