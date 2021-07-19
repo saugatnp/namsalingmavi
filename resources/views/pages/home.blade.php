@@ -55,8 +55,7 @@
                     <div class="himg">
                         <div class="pimg">
                             <img src="https://www.alverno.edu/images/quote_open.png" class="openquote">
-                            <img src="{{ asset('storage/images/' . $principalmsg->image) }}"
-                                class="hpimg">
+                            <img src="{{ asset('storage/images/' . $principalmsg->image) }}" class="hpimg">
                         </div>
                         <div class="hmsg">
                             <p class="ptext">{!! $principalmsg->value !!}</p>
@@ -151,6 +150,35 @@
             </div>
         </div>
     </section>
+    
+    <div class="nrecent">
+        @foreach ($recentevent as $data)
+        <div class="firstrecent">
+            <div class="frimage">
+                <img src="https://www.nd.edu/assets/images/home/pillar-research-1600.jpg" loading="lazy" class="rctimg">
+            </div>
+            <div class="frtext">
+                <div >
+                    <h2 class="title">{{ $data->title }}</h2><br/>
+                    <p>{!! $data->value !!}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        @foreach ($recenteventtwo as $data)
+        <div class="secondrecent">
+            <div class="frimagetwo">
+                <img src="{{$data->image}}" loading="lazy" class="rctimg2">
+            </div>
+            <div class="frtext">
+                <div >
+                    <h2 class="title">{{ $data->title }}</h2><br/>
+                    <p>{!! $data->value !!}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
     <div id="events">
         <div id="recentevents" class="col">
             <h1>Recent Events</h1>

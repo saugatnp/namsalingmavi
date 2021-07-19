@@ -31,8 +31,9 @@ class PostController extends Controller
         $sectiontwo = Post::where('key', 'sectwo')->get();
         $sectionthree = Post::where('key', 'secthree')->get();
         $recentevent = Post::where('key', 'recentevt')->get();
+        $recenteventtwo = Post::where('key' , 'recentevttwo')->get();
         return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone', $sectionone)->with('sectiontwo', $sectiontwo)->with('sectionthree', $sectionthree)
-            ->with('recentevent', $recentevent)->with('crouselone', $crouselone)->with('crouseltwo', $crouseltwo)->with('crouselthree', $crouselthree);
+            ->with('recentevent', $recentevent)->with('crouselone', $crouselone)->with('crouseltwo', $crouseltwo)->with('crouselthree', $crouselthree)->with('recenteventtwo' , $recenteventtwo);
     }
 
     /**
@@ -152,7 +153,7 @@ class PostController extends Controller
                 $this->validate($request, [
                     'title' => 'required',
                     'value' => 'required',
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:20048'
+                    'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20048'
                 ]);
                 $x = 10;
                 if ($request->hasFile('image')) {

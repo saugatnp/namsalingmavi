@@ -77,7 +77,14 @@
                                     class="fa fa-edit"></i>&nbsp;Edit</a></td>
                     @endforeach
                 </tr>
-
+                <tr>
+                    @foreach ($recenteventtwo as $data)
+                    <td></td>
+                    <td>{{ $data->title }}</td>
+                    <td><a class="btn btn-success button5" href="/index/{{ $data->id }}/edit"><i
+                        class="fa fa-edit"></i>&nbsp;Edit</a></td>
+                    @endforeach
+                </tr>
             </table>
         </div>
     </div>
