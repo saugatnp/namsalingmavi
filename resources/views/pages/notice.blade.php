@@ -7,14 +7,18 @@
             @foreach ($notice as $key => $data)
                 <div class="contents">
                     <p>{{ $data->title }}</p>
-                    <p class="dtt">{{$data->created_at}}</p>
-                    <a href="/notice/viewdetails/{{$data->id}}"><button class="btn btn-primary">View Details</button></a>
+                    <p class="dtt">{{ date('Y/m/d', strtotime($data->created_at)) }}</p>
+                    <a href="/notice/viewdetails/{{ $data->id }}"><button class="btn btn-primary">View
+                            Details</button></a>
                 </div>
                 <hr />
             @endforeach
+        </div>
     </center>
 
 
-
+    <div >
+        {{ $notice->links() }} 
+    </div>
 
 @endsection

@@ -806,8 +806,8 @@ hr {
 }
 
 .dtt {
-    margin-right: 1600px;
-    font-size: 18px;
+    float: left;
+    font-size: 13px;
 }
 .notice {
     text-align: center;
