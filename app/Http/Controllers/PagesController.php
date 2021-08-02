@@ -8,6 +8,8 @@ use App\Models\Album;
 use App\Models\Imagee;
 use App\Models\Notice;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 //contains code to fetch data for main pages
 class PagesController extends Controller
 {
@@ -74,7 +76,7 @@ class PagesController extends Controller
         $book = Post::where('key', 'book')->get();
         return view('pages.academics.booklist')->with('post', $post)->with('book', $book);
     }
-    //function for result page
+    //function for result page.
     public function examresult()
     {
         return view('pages.academics.examresult');
@@ -84,5 +86,11 @@ class PagesController extends Controller
     {
         $routine = Post::where('key', 'routine')->get();
         return view('pages.academics.examroutine')->with('routine', $routine);
+    }
+    //function to download booklist images
+    public function download($id){
+        $download = Post::where('id' , $id)->get();
+        foreach( $download as $down)
+            return response()->download( storage_path('app/public/images/'.$down->image ));
     }
 }

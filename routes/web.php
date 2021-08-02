@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
@@ -44,6 +45,7 @@ Route::get('/academics/academicslevel' , 'PagesController@academicslevel');
 Route::get('/academics/booklist/{id?}' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
 Route::get('/academics/examroutine' , 'PagesController@examroutine');
+Route::get('/booklist/download/{id?}','PagesController@download')->name('booklist.download');
 Route::resource('/index' , 'PostController');
 Route::post('add', ['uses' => 'HomeController@add']);
 ///back end routes

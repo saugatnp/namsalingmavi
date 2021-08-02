@@ -17,8 +17,8 @@
     </center>
 
 
-    <div >
-        {{ $notice->links() }} 
+    <div style="height: 100px; display:flex;">
+        <?php echo $notice->render() ?>
     </div>
 
 @endsection
