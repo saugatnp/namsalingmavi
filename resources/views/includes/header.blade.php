@@ -101,6 +101,7 @@
                           <li><a class="dropdown-item" href="/aboutus/schoolprofile">School Profile & History</a></li>
                           <li><a class="dropdown-item" href="/aboutus/bot">Teachers</a></li>
                           <li><a class="dropdown-item" href="/aboutus/smsc">School Management Comittee</a></li>
+                          <li><a class="dropdown-item" href="/aboutus/previouscomittee">Previous executives</a></li>
                           
 
                         </ul>

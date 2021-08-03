@@ -46,6 +46,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="/aboutus/bot">Teachers</a></li>
                                 <li><a class="dropdown-item" href="/aboutus/smsc">School Management Comittee</a></li>
+                                <li><a class="dropdown-item" href="/dash-board/pcomittee">School Management Comittee</a></li>
                                 
 
                             </ul>
@@ -101,6 +102,7 @@
                     <li><a class="dropdown-item" href="/dash-board/schoolprofile">School Profile & History</a></li>
                     <li><a class="dropdown-item" href="/dash-board/bot">Teachers</a></li>
                     <li><a class="dropdown-item" href="/dash-board/smsc">School Management Comittee</a></li>
+                    <li><a class="dropdown-item" href="/dash-board/pcomittee">Previous Comittee</a></li>
                    
 
                 </ul>

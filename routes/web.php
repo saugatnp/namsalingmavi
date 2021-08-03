@@ -41,6 +41,7 @@ Route::get('/aboutus/schoolprofile','PagesController@schoolprofile');
 Route::get('/aboutus/bot','PagesController@bot');
 Route::get('/aboutus/smsc','PagesController@smsc');
 Route::get('/aboutus/cont','PagesController@cont');
+Route::get('/aboutus/previouscomittee','PagesController@pcomittee');
 Route::get('/academics/academicslevel' , 'PagesController@academicslevel');
 Route::get('/academics/booklist/{id?}' , 'PagesController@booklist');
 Route::get('/academics/examresult' , 'PagesController@examresult');
@@ -62,5 +63,6 @@ Route::get('/dash-board/notice' ,[App\Http\Controllers\HomeController::class, 'n
 Route::get('/dash-board/schoolprofile' ,[App\Http\Controllers\HomeController::class, 'schoolprofile'])->middleware('auth');
 Route::get('/dash-board/bot' ,[App\Http\Controllers\HomeController::class, 'bot'])->middleware('auth');
 Route::get('/dash-board/smsc' ,[App\Http\Controllers\HomeController::class, 'smsc'])->middleware('auth');
+Route::get('/dash-board/pcomittee' ,[App\Http\Controllers\HomeController::class, 'pcomittee'])->middleware('auth');
 Route::post('/index/{id}', [PostController::class, 'store'])->middleware('auth');
 

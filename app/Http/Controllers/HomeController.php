@@ -113,6 +113,16 @@ class HomeController extends Controller
             $routine->save();
             return redirect('/dash-board/smsc')->with('success', 'New Faculty Added');
         }
+        //selects request from pcomittee
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/pcomittee") {
+            $com = new Post;
+            $com->key='pcom';
+            $com->title = $request->input('title');
+            $com->value = $request->input('title');
+            $com->image = 'noimage.jpg';
+            $com->save();
+            return redirect('/dash-board/pcomittee')->with('success' , 'Member added');
+        }
     }
     //function to fetch data for dashboard notice page
     public function notice()
@@ -139,5 +149,10 @@ class HomeController extends Controller
     {
         $smsc = Post::where('key', 'smc')->get();
         return view('backends.smsc')->with('smsc', $smsc);
+    }
+    //function to fetch previous comittee member data
+    public function pcomittee(){
+        $p = Post::where('key', 'pcom')->get();
+        return view('backends.pcomittee')->with('pcomittee', $p);
     }
 }

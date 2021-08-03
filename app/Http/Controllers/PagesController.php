@@ -69,6 +69,11 @@ class PagesController extends Controller
         $smc = Post::where('key', 'smc')->get();
         return view('pages.aboutus.smsc')->with('smc', $smc);
     }
+    //
+    public function pcomittee(){
+        $p = Post::where('key','pcom')->get();
+        return view('pages.aboutus.pcomittee')->with('pcomittee', $p);
+    }
     //function to display the booklist 
     public function booklist($id = '14')
     {

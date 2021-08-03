@@ -201,7 +201,10 @@ class PostController extends Controller
                     return redirect('dash-board/bot')->with('success', "Faculty updated");
                 } elseif ($request->input('url') == "/dash-board/smsc") {
                     return redirect('dash-board/smsc')->with('success', "School Comittee updated");
+                } elseif ($request->input('url') == "/dash-board/pcomittee") {
+                    return redirect('dash-board/pcomittee')->with('success', "Previous Comittee updated");
                 }
+                
                 return redirect('/home')->with('success', 'Home page updated');
             }
         }
@@ -252,6 +255,12 @@ class PostController extends Controller
             $notice = Notice::Find($id);
             $notice->delete();
             return redirect('/dash-board/notice')->with('success', 'Notice deleted');
+        }
+        //check if request is form  the previous comittee and deletes the data
+        elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/pcomittee") {
+            $notice = Post::Find($id);
+            $notice->delete();
+            return redirect('/dash-board/pcomittee')->with('success', 'Data deleted');
         }
         //else it deltes the image 
         else {
