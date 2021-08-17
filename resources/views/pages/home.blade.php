@@ -64,6 +64,12 @@
                             </strong>
                             <img src="	https://www.alverno.edu/images/quote_close.png" class="closequote">
                         </div>
+                        <div class="hid ">
+                            <p class="ptext">{!! $principalmsg->value !!}</p>
+                            <strong>
+                                <p class="ptext"> {{ $principalmsg->title }}</p>
+                            </strong>
+                        </div>
                     </div>
                 </div>
             </div>

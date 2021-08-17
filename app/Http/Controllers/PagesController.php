@@ -69,7 +69,7 @@ class PagesController extends Controller
         $smc = Post::where('key', 'smc')->get();
         return view('pages.aboutus.smsc')->with('smc', $smc);
     }
-    //
+    //function to view previous comittee member data
     public function pcomittee(){
         $p = Post::where('key','pcom')->get();
         return view('pages.aboutus.pcomittee')->with('pcomittee', $p);

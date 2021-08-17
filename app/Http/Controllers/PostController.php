@@ -58,6 +58,8 @@ class PostController extends Controller
         $this->validate($request, [
             'photo' => 'image|max:15999'
         ]);
+
+
         //handle file upload
         $x = 10;
         if ($request->hasFile('photo')) {
@@ -72,14 +74,14 @@ class PostController extends Controller
             //upload image
             $image = $request->file('photo');
             $img = Image::make($image);
-            echo $fileNameToStore;
+           
             $img->save(\public_path('/storage/images/' . $fileNameToStore), $x);
-            echo $fileNameToStore;
+           echo $fileNameToStore;
         }
         //create new row in image table
         $post = new Imagee;
         $post->album_id = $id;
-        echo $fileNameToStore;
+        
         //save the file name as the name we just created
         $post->photo = $fileNameToStore;
         $post->save();
@@ -193,18 +195,28 @@ class PostController extends Controller
                 //condition to check and return to respective pages the request came form
                 if ($request->input('url') == "/dash-board/examroutine") {
                     return redirect('dash-board/examroutine')->with('success', "Exam routine updated");
-                } elseif ($request->input('url') == "/dash-board/booklist") {
-                    return redirect('dash-board/booklist')->with('success', "Book list updated");
-                } elseif ($request->input('url') == "/dash-board/schoolprofile") {
-                    return redirect('dash-board/schoolprofile')->with('success', "School Profile updated");
-                } elseif ($request->input('url') == "/dash-board/bot") {
-                    return redirect('dash-board/bot')->with('success', "Faculty updated");
-                } elseif ($request->input('url') == "/dash-board/smsc") {
-                    return redirect('dash-board/smsc')->with('success', "School Comittee updated");
-                } elseif ($request->input('url') == "/dash-board/pcomittee") {
-                    return redirect('dash-board/pcomittee')->with('success', "Previous Comittee updated");
                 }
-                
+                //check to see if the request is from booklist page 
+                elseif ($request->input('url') == "/dash-board/booklist") {
+                    return redirect('dash-board/booklist')->with('success', "Book list updated");
+                } 
+                //check if the request is from the school profile page
+                elseif ($request->input('url') == "/dash-board/schoolprofile") {
+                    return redirect('dash-board/schoolprofile')->with('success', "School Profile updated");
+                } 
+                //check if the request is from the bot page
+                elseif ($request->input('url') == "/dash-board/bot") {
+                    return redirect('dash-board/bot')->with('success', "Faculty updated");
+                } 
+                //check if the request is from smsc page
+                elseif ($request->input('url') == "/dash-board/smsc") {
+                    return redirect('dash-board/smsc')->with('success', "School Comittee updated");
+                } 
+                //check if the request is from previous comittee page
+                elseif ($request->input('url') == "/dash-board/pcomittee") {
+                    return redirect('dash-board/pcomittee')->with('success', "Previous Comittee updated");
+                } 
+                //else redirect to the home page
                 return redirect('/home')->with('success', 'Home page updated');
             }
         }

@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Album;
+use Intervention\Image\Facades\Image;
 use App\Models\Notice;
 
 class HomeController extends Controller
@@ -86,10 +87,28 @@ class HomeController extends Controller
         }
         //selects request from notice page and adds new notice
         elseif (str_replace(url('/'), '', url()->previous()) == "/dash-board/notice") {
+         
             $notice = new Notice;
             $notice->title = $request->input('title');
+            $x = 20;
+            if ($request->hasFile('image')) {
+                //get file name with extension
+                $fileNameWithExt = $request->file('image')->getClientOriginalName();
+                // get just file name 
+                $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                // get just extension
+                $extension = $request->file('image')->getClientOriginalExtension();
+                //filename to store
+                $fileNameToStore = 'FILE_' . time() . '.' . $extension;
+                //upload image
+                $image = $request->file('image');
+
+                $img = Image::make($image);
+                $img->save(\public_path('/storage/images/' . $fileNameToStore), $x);
+            }
+
             //default value can edit it later
-            $notice->image = $request->input('image');
+            $notice->image = $fileNameToStore;
             $notice->save();
             return redirect('/dash-board/notice')->with('success', 'New Notice Added');
         }

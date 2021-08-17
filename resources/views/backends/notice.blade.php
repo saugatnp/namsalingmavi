@@ -22,10 +22,11 @@
                             {!! Form::close() !!}
                         </td>
                     </tr>
+
                 @endforeach
             </table>
             {{-- add new notice --}}
-            {!! Form::open(['action' => 'HomeController@add', 'method' => 'POST', 'onsubmit' => 'return confirm("are you sure ?")']) !!}
+            {!! Form::open(['action' => 'HomeController@add', 'method' => 'POST', 'onsubmit' => 'return confirm("are you sure ?")' , 'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
                 {{ Form::label('title', 'Add new notice') }}
                 {{ Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Add new notice', 'required']) }}

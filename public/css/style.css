@@ -192,6 +192,7 @@ footer {
 }
 .mcontent {
     position: relative;
+    height: auto;
 }
 .mpage {
     position: relative;
@@ -207,15 +208,16 @@ footer {
 }
 .himg {
     position: relative;
+    height: auto;
 }
 .pimg {
     position: relative;
-    padding: 70px 0 120px;
+    height: auto;
 }
 .hpimg{
     background-size: cover !important;
     width: 50%;
-    height:60vh;
+    height: auto;
     border-radius: 10px;
     z-index: 30;
     position: relative;
@@ -224,12 +226,13 @@ footer {
 }
 .hmsg {
     position: absolute;
-    top: 30%;
+    top: 20%;
     right: 0;
     background: #fff;
     width: 60%;
     min-height:55vh;
-    padding: 7% 5% 0% 10%;
+    height: auto;
+    padding: 7% 5% 0% 15%;
     box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
@@ -243,6 +246,13 @@ footer {
 .ptext{
     text-align: justify;
     margin-left:10%;
+}
+.hid{
+    padding: 0% 5% 0% 10%;
+    width: 70%;
+    min-height: 25vh;
+    height: auto;
+    visibility: hidden;
 }
 @media (max-width: 850px){
 .hmsg {
@@ -260,6 +270,13 @@ footer {
 }
 .hpimg{
     width:100%;
+    height: auto;
+}
+.hid{
+    display: none;
+}
+.hm{
+    margin-bottom: 45px;
 }
 }
 .nrecent{
