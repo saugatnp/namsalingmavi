@@ -12,12 +12,12 @@
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 {{-- <a href="/gallery/images/{{ $data->id }}" class="card-img"><img src="/storage/images/{{ $img->photo }}" --}}
-                                <a href="/gallery/images/{{ $data->id }}" class="card-img"><img src="{{ $img->photo }}"
+                                <a href="/gallery/images/{{ $data->id }}" class="card-img"><img src="{{asset('/storage/images/'.$img->photo)}}"
                                         alt="{{$data->title}}" class="card-img"></a>
                                 <div class="card-body">
                                     <div class="card-title">
                                         <th>{{ $data->title }}</th>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>

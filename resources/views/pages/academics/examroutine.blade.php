@@ -8,7 +8,7 @@
                         <h1> {{$data->title}} </h1>
                         <p> {!!$data->value!!}
                         </p>
-                        <img src="{{$data->image}}" width="100%">
+                        <img src="{{asset('storage/images/'.$data->image)}}" width="100%">
                         @endforeach
                 </div>
 

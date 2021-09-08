@@ -5,17 +5,17 @@
                 <div class="col-md-6">
                     <ul class="list-inline mb-0 py-2">
                         <li class="list-inline-item">
-                            <a href="tel:027-1234567" class="c0132">
+                            <a href="tel:9842646517" class="c0132">
                                 <span aria-hidden="true" class="fa fa-phone mr-1">
                                 </span> 
-                                027-1234567
+                                9842646517
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="mailto:info@namsalingmavi.edu.np" class="c0132">
+                            <a href="mailto:namsalingmavi@gmail.com" class="c0132">
                                 <span aria-hidden="true" class="fa fa-envelope mr-1">
                                 </span>
-                                info@namsalingmavi.edu.np
+                                namsalingmavi@gmail.com
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -31,19 +31,28 @@
                     <ul class="list-inline mb-0 pt-md-2 pb-2 text-md-right">
 
                       
-                            <a aria-haspopup="true" href="/login" aria-expanded="false">
+                            <a class="login-button"aria-haspopup="true" href="/login" aria-expanded="false">
 
               
                                 <span aria-hidden="true" class="fa fa-lock mr-1">
                                 </span>
                                 Login
                             </a>
-                            <li class="list-inline-item">
+                            <li class="list-inline-item" style="color:white">
                                 |       
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://www.facebook.com/Namsaling-secondary-school-1039472906234748" target="_blank" title="Facebook" class="c0132" rel="noopener noreferrer">
+                                <a href="https://www.facebook.com/namsalinghighschool.ilam/" target="_blank" title="Facebook" class="c0132" rel="noopener noreferrer">
                                     <span class="fa fa-facebook">
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item" style="color:white">
+                                |       
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.youtube.com/channel/UCftoOYsA5DeB_kcxeHbz1uw" target="_blank" title="Facebook" class="c0132" rel="noopener noreferrer">
+                                    <span class="fa fa-youtube">
                                     </span>
                                 </a>
                             </li>
@@ -52,13 +61,13 @@
             </div>
         </div>
     </div>
-    <div id="nav" class="sticky-top">
-            <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
+    <div id="nav" class="">
+            <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
-                    <nav class="navbar sticky-top navbar-light navbar-left ">
-                        <div class="container">
+                    <nav class="navbar navbar-light navbar-left ">
+                        <div  style="margin:0 , padding:0">
                           <a class="navbar-brand px-3" href="#">
-                            <img src="https://www.logologo.com/logos/horse-logo2.jpg" alt="" width="50" height="40">
+                            <img src="{{asset('storage/images/filelogo.png')}}" alt="school logo"  class="nav-logo">
                           </a>
                         </div>
                       </nav>
@@ -78,7 +87,8 @@
                           
                           <li><a class="dropdown-item" href="/academics/booklist">Book List</a></li>
                           <li><a class="dropdown-item" href="/academics/examroutine">Exam Routine</a></li>
-                          <li><a class="dropdown-item" href="/academics/examresult">Exam Result</a></li>
+                          <li><a class="dropdown-item " href="https://see.ntc.net.np/"  role="button"  aria-expanded="false">SEE Result</a>
+                          </li>
 
                         </ul>
                       </li>
@@ -89,7 +99,9 @@
                       <li class="nav-item px-3">
                         <a class="nav-link active" aria-current="page" href="/notice">NOTICE</a>
                       </li>
-                     
+                     <li class="nav-item px-3">
+                        <a class="nav-link active" aria-current="page" href="https://meet.google.com/?hs=193&pli=1">ONLINE CLASSES</a>
+                      </li>
                       <li class="nav-item px-3">
                         <a class="nav-link disabled" href="/library" tabindex="-1" aria-disabled="true">LIBRARY</a>
                       </li>
@@ -102,7 +114,6 @@
                           <li><a class="dropdown-item" href="/aboutus/bot">Teachers</a></li>
                           <li><a class="dropdown-item" href="/aboutus/smsc">School Management Comittee</a></li>
                           <li><a class="dropdown-item" href="/aboutus/previouscomittee">Previous executives</a></li>
-                          
 
                         </ul>
                       </li>

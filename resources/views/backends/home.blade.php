@@ -85,6 +85,7 @@
                         class="fa fa-edit"></i>&nbsp;Edit</a></td>
                     @endforeach
                 </tr>
+
             </table>
         </div>
     </div>

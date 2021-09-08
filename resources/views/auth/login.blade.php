@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <a class="btn btn-primary" href="/index">Main Page</a>
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

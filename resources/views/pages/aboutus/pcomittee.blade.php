@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="row heading heading-icon">
-  <h2>बिध्यालय ब्यावस्थापन समिति</h2>
+  <h2>बिध्यालय ब्यावस्थापन समिति  (पूर्व अध्यक्ष)</h2>
+   
 </div>
         <section class="our-webcoderskull padding-lg">
           

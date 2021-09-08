@@ -5,18 +5,18 @@
 <h3 style="text-align:center; margin-top:50px;">{{$data->title}}</h3>
 <section class="wrapper-info">
   <div class="row people">
-      <div class="col-sm-6 info-div ">
+      <div class="col-sm-5 info-div ">
           <div>
             <div class="info-img" style="align-content:center;">
-              <img src="{{$data->image}}" class="info-img">
+              <img src="{{asset('storage/images/'.$data->image)}}" class="info-img">
             </div>&nbsp;
           </div>
       </div>
      
-      <div class="col-sm-6 info-div">
-        <div>
-          <p>
-            {{$data->value}}      
+      <div class="col-sm-5 info-div">
+        <div style="margin:25px;">
+          <p >
+            {!!$data->value!!}      
           </p>
         </div>
       </div>

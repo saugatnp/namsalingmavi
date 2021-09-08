@@ -51,7 +51,7 @@
                         @if ($data->album_id == $album->id)
                             <tr>
                                 <td></td>
-                                <td><img src="{{ $data->photo }}" class="tableimg"></td>
+                                <td><img src="{{asset('/storage/images/'.$data->photo)}}" class="tableimg"></td>
                                 <td>
                                     {{-- code to delete an image --}}
                                     {!! Form::open(['action' => ['PostController@destroy', $data->id], 'method' => 'POST', 'onsubmit' => 'return confirm("are you sure ?")']) !!}

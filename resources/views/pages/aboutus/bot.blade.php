@@ -10,7 +10,8 @@
             <div class="col-md-4 col-lg-3 item">
                 <div class="box">
                     @foreach($principal as $data)
-                    <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{$data->image}}">
+                    
+                    <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{asset('storage/images/'.$data->image)}}">
                     <h3 class="name">{{$data->title}}</h3>
                     <p class="title">{!!$data->value!!}</p>
                     @endforeach
@@ -19,9 +20,9 @@
             <div class="col-md-4 col-lg-3 item">
                 <div class="box">
                     @foreach($viceprincipal as $data)
-                    <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{$data->image}}">
+                    <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{asset('storage/images/'.$data->image)}}">
                     <h3 class="name">{{$data->title}}</h3>
-                    <p class="title">{{$data->value}}</p>    
+                    <p class="title">{!!$data->value!!}</p>    
                     @endforeach
                 </div>
             </div>
@@ -29,7 +30,7 @@
             <div class="col-md-4 col-lg-3 item">
                 <div class="box">
                     
-                    <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{$data->image}}">
+                    <img class="rounded-circle" data-bs-hover-animate="pulse" src="{{asset('storage/images/'.$data->image)}}">
                     <h3 class="name">{{$data->title}}</h3>
                     <p class="title">{!!$data->value!!}</p>  
                       

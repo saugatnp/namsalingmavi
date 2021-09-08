@@ -16,10 +16,10 @@
 					<i class="fa fa-map-marker"> Location</i>
 					<p><span>Maijogmai-3</span> Ilam, Nepal</p>
 					<i class="fa fa-phone"> Contact No.</i>
-					<p>027-1234567</p>
+					<a href="tel:9842646517"></a><p>9842646517</p></a>
 					<i class="fa fa-envelope">  Mail ID</i>
-					<p><a href="mailto:support@company.com" style="color: #17252a;">info@namsalingmavi.edu.np</a></p>
-                    <div class="social"><a href="https://www.facebook.com/Namsaling-secondary-school-1039472906234748">
+					<p><a href="mailto:namsalingmavi@gmail.com" style="color: #17252a;">namsalingmavi@gmail.com</a></p>
+                    <div class="social"><a href="https://www.facebook.com/namsalinghighschool.ilam/">
                     <i class="fa fa-facebook-official"></i>
                     </a> 
    
@@ -28,6 +28,7 @@
  </div>
  <div class="col-md-6 contact">
  <div class="box">
+     <form action="mailto:namsalingmavi@gmail.com" method="POST" enctype="text/plain">
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your first name.." required>
     <label for="lname">Last Name</label>
@@ -36,7 +37,8 @@
     <input type="text" id="e-mail" name="email" placeholder="Enter your E-mail ID..."required>
     <label for="message"> Message </label>
     <input type="text" id="message" name="message" placeholder="Write your message here..."required>
-    <button class="btn btn-danger">Submit</button>
+    <button class="btn btn-danger" type="submit" name="submit" value="Send"  >Submit</button>
+    </form>
  </div>
         
 </section>
