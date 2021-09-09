@@ -30,7 +30,7 @@ class PagesController extends Controller
     //function to fetch all the notices
     public function notice()
     {
-        $notice = DB::table('notices')->orderBy('created_at', 'desc')->paginate(2);
+        $notice = DB::table('notices')->orderBy('created_at', 'desc')->paginate(10);
         return view('pages.notice')->with('notice', $notice);
     }
     //function to fetch the detailes notice with the notice id passed in the parameter

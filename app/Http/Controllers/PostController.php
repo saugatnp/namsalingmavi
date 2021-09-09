@@ -32,8 +32,10 @@ class PostController extends Controller
         $sectionthree = Post::where('key', 'secthree')->get();
         $recentevent = Post::where('key', 'recentevt')->get();
         $recenteventtwo = Post::where('key' , 'recentevttwo')->get();
+        $viewnotice = Notice::latest()->get();
         return view('pages.home')->with('principalmsgs', $principalmsgs)->with('sectionone', $sectionone)->with('sectiontwo', $sectiontwo)->with('sectionthree', $sectionthree)
-            ->with('recentevent', $recentevent)->with('crouselone', $crouselone)->with('crouseltwo', $crouseltwo)->with('crouselthree', $crouselthree)->with('recenteventtwo' , $recenteventtwo);
+            ->with('recentevent', $recentevent)->with('crouselone', $crouselone)->with('crouseltwo', $crouseltwo)->with('crouselthree', $crouselthree)->with('recenteventtwo' , $recenteventtwo)
+            ->with('notice' , $viewnotice);
     }
 
     /**

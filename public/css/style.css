@@ -291,7 +291,7 @@ footer {
     height: 100%;
     width: 100%;
     background-color: #88bef5;
-    -webkit-clip-path: circle(50% at 100% 0);
+    clip-path: circle(50% at 100% 0);
 }
 .nrecent{
     width:100%;
@@ -404,12 +404,12 @@ footer {
     width: 100%;
     background-color: #2f89fc;
     z-index: 5;
-    -webkit-clip-path: circle(40% at 9% 100%);
+    clip-path: circle(40% at 9% 100%);
     
 }
 .motto-circletwo{
     background-color: var(--blue);
-    -webkit-clip-path: circle(60% at 9% 100%);
+    clip-path: circle(60% at 9% 100%);
     position: absolute;
     height: 100%;
     width: 100%;
